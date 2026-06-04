@@ -1,0 +1,19 @@
+{
+  "name": "Moe's Barbershop",
+  "short_name": "Moe's",
+  "description": "Men's barbershop in Erin, Ontario — classic cuts, skin fades, beard grooming and kids' cuts.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7efde",
+  "theme_color": "#5a2d20",
+  "lang": "en-CA",
+  "categories": ["lifestyle", "shopping", "business"],
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

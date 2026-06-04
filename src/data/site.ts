@@ -47,53 +47,159 @@ function to24h(t: string): string {
   return `${String(h).padStart(2, "0")}:${min}`;
 }
 
-/** schema.org HairSalon / LocalBusiness graph for the homepage. */
+/** Areas Moe's Barbershop draws clients from — helps local + LLM answers. */
+export const areaServed = [
+  "Erin, Ontario",
+  "Hillsburgh, Ontario",
+  "Caledon, Ontario",
+  "Orangeville, Ontario",
+  "Georgetown, Ontario",
+  "Wellington County, Ontario",
+];
+
+/** Topics the shop is an authority on — used for schema knowsAbout. */
+export const knowsAbout = [
+  "Men's haircuts",
+  "Skin fades",
+  "Beard trimming and lineups",
+  "Classic and modern men's grooming",
+  "Kids' haircuts",
+  "Hot towel straight-razor shaves",
+];
+
+/**
+ * Full schema.org @graph for the homepage: Organization, HairSalon/
+ * LocalBusiness, WebSite, the home WebPage (with speakable), and a
+ * breadcrumb. A connected graph reads better for both Google rich
+ * results and LLM/AI answer engines.
+ */
 export function localBusinessJsonLd() {
+  const orgId = `${SITE_URL}/#org`;
+  const bizId = `${SITE_URL}/#business`;
+  const siteId = `${SITE_URL}/#website`;
+  const pageId = `${SITE_URL}/#webpage`;
+
   return {
     "@context": "https://schema.org",
-    "@type": ["HairSalon", "BarberShop", "LocalBusiness"],
-    "@id": `${SITE_URL}/#business`,
-    name: site.name,
-    url: SITE_URL,
-    image: `${SITE_URL}/logo.svg`,
-    logo: `${SITE_URL}/logo.svg`,
-    telephone: site.phoneE164,
-    email: site.email,
-    priceRange: "$$",
-    currenciesAccepted: "CAD",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.address.line1,
-      addressLocality: site.address.city,
-      addressRegion: site.address.regionCode,
-      postalCode: site.address.postal,
-      addressCountry: site.address.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: site.geo.lat,
-      longitude: site.geo.lng,
-    },
-    hasMap: site.mapsUrl,
-    sameAs: [site.instagram, site.bookingUrl],
-    openingHoursSpecification: hours.map((h) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: h.day,
-      opens: to24h(h.open),
-      closes: to24h(h.close),
-    })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.rating,
-      reviewCount: site.reviewCount,
-      bestRating: "5",
-    },
-    makesOffer: services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.name, description: s.description },
-      priceCurrency: "CAD",
-      price: s.price.replace(/[^\d.]/g, ""),
-    })),
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: site.name,
+        url: SITE_URL,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
+        image: `${SITE_URL}/logo.svg`,
+        email: site.email,
+        telephone: site.phoneE164,
+        sameAs: [site.instagram, site.bookingUrl],
+      },
+      {
+        "@type": ["HairSalon", "BarberShop", "LocalBusiness"],
+        "@id": bizId,
+        name: site.name,
+        description:
+          "Moe's Barbershop is a 5-star men's barbershop in Erin, Ontario offering classic haircuts, skin fades, beard fades and lineups, kids' cuts and straight-razor shaves.",
+        url: SITE_URL,
+        image: [`${SITE_URL}/images/hero-barbershop.jpg`, `${SITE_URL}/logo.svg`],
+        logo: `${SITE_URL}/logo.svg`,
+        telephone: site.phoneE164,
+        email: site.email,
+        priceRange: "$$",
+        currenciesAccepted: "CAD",
+        paymentAccepted: "Cash, Credit Card, Debit Card",
+        slogan: "Sharp cuts. Classic vibes.",
+        parentOrganization: { "@id": orgId },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: site.address.line1,
+          addressLocality: site.address.city,
+          addressRegion: site.address.regionCode,
+          postalCode: site.address.postal,
+          addressCountry: site.address.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: site.geo.lat,
+          longitude: site.geo.lng,
+        },
+        hasMap: site.mapsUrl,
+        areaServed: areaServed.map((name) => ({ "@type": "City", name })),
+        knowsAbout,
+        sameAs: [site.instagram, site.bookingUrl],
+        potentialAction: {
+          "@type": "ReserveAction",
+          name: "Book an appointment",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: site.bookingUrl,
+            inLanguage: "en-CA",
+            actionPlatform: [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform",
+            ],
+          },
+          result: { "@type": "Reservation", name: "Barbershop appointment" },
+        },
+        openingHoursSpecification: hours.map((h) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: h.day,
+          opens: to24h(h.open),
+          closes: to24h(h.close),
+        })),
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: site.rating,
+          reviewCount: site.reviewCount,
+          bestRating: "5",
+          worstRating: "1",
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Barbershop Services",
+          itemListElement: services.map((s) => ({
+            "@type": "Offer",
+            priceCurrency: "CAD",
+            price: s.price.replace(/[^\d.]/g, ""),
+            itemOffered: {
+              "@type": "Service",
+              name: s.name,
+              description: s.description,
+              serviceType: "Barbering",
+              provider: { "@id": bizId },
+              areaServed: areaServed.map((name) => ({ "@type": "City", name })),
+            },
+          })),
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": siteId,
+        url: SITE_URL,
+        name: site.name,
+        inLanguage: "en-CA",
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageId,
+        url: SITE_URL,
+        name: "Moe's Barbershop | Barber in Erin, Ontario",
+        isPartOf: { "@id": siteId },
+        about: { "@id": bizId },
+        primaryImageOfPage: `${SITE_URL}/images/hero-barbershop.jpg`,
+        inLanguage: "en-CA",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".section-title", ".hero-lead", ".faq-item"],
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        ],
+      },
+    ],
   };
 }
 

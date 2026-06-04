@@ -57,6 +57,10 @@ const breadcrumbJsonLd = {
   canonicalPath={`/blog/${post.id}`}
   type="article"
   image={post.data.heroImage ?? "/logo.svg"}
+  publishedTime={post.data.pubDate.toISOString()}
+  modifiedTime={(post.data.updatedDate ?? post.data.pubDate).toISOString()}
+  author={post.data.author}
+  tags={post.data.tags}
   jsonLd={[articleJsonLd, breadcrumbJsonLd]}
 >
   <Header />
