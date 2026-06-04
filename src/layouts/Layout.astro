@@ -67,6 +67,45 @@ const imageUrl = new URL(image, siteUrl).href;
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- Google tag (gtag.js) — Google Ads: AW-18137998706 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-18137998706"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-18137998706");
+
+      // Google Ads conversion: "Book appointment".
+      // Fires when a booking link/button is clicked. Booking links open in a
+      // new tab, so we just report the conversion without redirecting here.
+      function gtag_report_conversion(url) {
+        gtag("event", "conversion", {
+          send_to: "AW-18137998706/fCxWCMGnkqccEPLK78hD",
+          event_callback: function () {
+            if (typeof url !== "undefined") {
+              window.location = url;
+            }
+          },
+        });
+        return false;
+      }
+
+      // Auto-attach the conversion to every booking button/link.
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("[data-book]").forEach(function (el) {
+          el.addEventListener("click", function () {
+            gtag("event", "conversion", {
+              send_to: "AW-18137998706/fCxWCMGnkqccEPLK78hD",
+            });
+          });
+        });
+      });
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
