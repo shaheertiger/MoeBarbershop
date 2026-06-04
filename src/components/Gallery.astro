@@ -1,24 +1,49 @@
 ---
 const shots = [
   {
-    src: "/images/haircut.jpg",
-    alt: "Scissor haircut in progress at Moe's Barbershop",
-    label: "Precision cuts",
+    src: "/images/cut-side-part.jpg",
+    alt: "Men's side-part haircut with a skin fade at Moe's Barbershop",
+    label: "Side part & fade",
   },
   {
-    src: "/images/fade.jpg",
-    alt: "Barber styling a fresh fade with a blow dryer",
+    src: "/images/cut-fade.jpg",
+    alt: "Sharp men's fade haircut being shaped by the barber",
     label: "Clean fades",
   },
   {
-    src: "/images/beard-trim.jpg",
-    alt: "Sharp fade and lineup viewed from behind",
+    src: "/images/cut-curly-fade.jpg",
+    alt: "Curly top with a skin fade and blonde tips",
+    label: "Textured tops",
+  },
+  {
+    src: "/images/cut-pompadour.jpg",
+    alt: "Slick pompadour with a skin fade and full beard",
+    label: "Pompadour & fade",
+  },
+  {
+    src: "/images/cut-scissor.jpg",
+    alt: "Close-up of a men's scissor haircut at Moe's Barbershop",
+    label: "Precision cuts",
+  },
+  {
+    src: "/images/cut-comb-fade.jpg",
+    alt: "Barber combing a fresh fade from behind",
     label: "Sharp lineups",
   },
   {
-    src: "/images/barber-tools.jpg",
-    alt: "Barber scissors, comb and dryer on a wooden bench",
-    label: "Pro tools",
+    src: "/images/fade.jpg",
+    alt: "Barber styling a fresh men's fade with a blow dryer",
+    label: "Blow-out & style",
+  },
+  {
+    src: "/images/cut-beard-profile.jpg",
+    alt: "Men's haircut and beard trim, side profile",
+    label: "Cut & beard",
+  },
+  {
+    src: "/images/haircut.jpg",
+    alt: "Scissor haircut in progress at Moe's Barbershop",
+    label: "Classic cuts",
   },
 ];
 ---
@@ -31,22 +56,11 @@ const shots = [
       <p>A look at the cuts, fades and grooming we do every day in Erin.</p>
     </div>
 
-    <figure class="banner">
-      <img
-        src="/images/shop-interior.jpg"
-        alt="Inside Moe's Barbershop — vintage chairs, brick walls and warm lighting"
-        loading="lazy"
-        width="1200"
-        height="600"
-      />
-      <figcaption>99 Trafalgar Rd · Erin, Ontario</figcaption>
-    </figure>
-
     <div class="shots">
       {
         shots.map((s) => (
           <figure class="shot">
-            <img src={s.src} alt={s.alt} loading="lazy" width="600" height="600" />
+            <img src={s.src} alt={s.alt} loading="lazy" width="600" height="800" />
             <figcaption>{s.label}</figcaption>
           </figure>
         ))
@@ -60,35 +74,9 @@ const shots = [
     background: var(--cream);
   }
 
-  .banner {
-    position: relative;
-    margin: 0 0 18px;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    aspect-ratio: 21 / 9;
-  }
-
-  .banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .banner figcaption {
-    position: absolute;
-    left: 22px;
-    bottom: 18px;
-    color: #fff;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-  }
-
   .shots {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
   }
 
@@ -132,6 +120,12 @@ const shots = [
   @media (max-width: 820px) {
     .shots {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .shots {
+      grid-template-columns: 1fr;
     }
   }
 </style>
