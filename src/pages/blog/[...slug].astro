@@ -1,0 +1,195 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { site, SITE_URL } from "../../data/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" });
+
+const url = `${SITE_URL}/blog/${post.id}`;
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": url,
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  author: { "@type": "Person", name: post.data.author },
+  publisher: {
+    "@type": "Organization",
+    name: "Moe's Barbershop",
+    logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
+  },
+  image: `${SITE_URL}/logo.svg`,
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  keywords: post.data.tags.join(", "),
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+    { "@type": "ListItem", position: 3, name: post.data.title, item: url },
+  ],
+};
+---
+
+<Layout
+  title={`${post.data.title} | Moe's Barbershop`}
+  description={post.data.description}
+  canonicalPath={`/blog/${post.id}`}
+  type="article"
+  jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+>
+  <Header />
+  <main>
+    <article class="post">
+      <div class="container narrow">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> / <a href="/blog">Blog</a>
+        </nav>
+
+        <header class="post-header">
+          <div class="post-meta">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {fmt(post.data.pubDate)}
+            </time>
+            <span>·</span>
+            <span>By {post.data.author}</span>
+          </div>
+          <h1>{post.data.title}</h1>
+          <p class="lead">{post.data.description}</p>
+        </header>
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        <div class="post-cta">
+          <h3>Ready for a fresh cut?</h3>
+          <p>Book your appointment at Moe's Barbershop in Erin, Ontario.</p>
+          <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener">
+            Book an Appointment
+          </a>
+        </div>
+
+        <a class="back-link" href="/blog">← Back to all articles</a>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+
+  .post {
+    padding: 48px 0 72px;
+  }
+
+  .crumbs {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .crumbs a:hover {
+    color: var(--orange);
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+  }
+
+  .post-header h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+  }
+
+  .post-header .lead {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .prose {
+    font-size: 1.08rem;
+    color: var(--ink);
+    border-top: 1px solid rgba(90, 45, 32, 0.12);
+    padding-top: 32px;
+    margin-top: 24px;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.6rem;
+    margin-top: 1.8em;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    margin-top: 1.5em;
+  }
+
+  .prose :global(ul) {
+    padding-left: 1.2em;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(a) {
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .post-cta {
+    background: var(--brown);
+    color: var(--cream);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 32px;
+  }
+
+  .post-cta h3 {
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .post-cta p {
+    color: rgba(240, 228, 204, 0.85);
+  }
+
+  .back-link {
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .back-link:hover {
+    color: var(--orange);
+  }
+</style>

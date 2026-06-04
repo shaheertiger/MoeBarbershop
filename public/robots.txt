@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moesbarbershop.ca/sitemap-index.xml

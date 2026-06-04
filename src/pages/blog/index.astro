@@ -1,0 +1,167 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_URL } from "../../data/site";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" });
+
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Moe's Barbershop Blog",
+  url: `${SITE_URL}/blog`,
+  publisher: { "@type": "Organization", name: "Moe's Barbershop" },
+  blogPost: posts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.data.title,
+    description: p.data.description,
+    datePublished: p.data.pubDate.toISOString(),
+    url: `${SITE_URL}/blog/${p.id}`,
+  })),
+};
+---
+
+<Layout
+  title="Barbering Tips & Style Guides | Moe's Barbershop Blog"
+  description="Haircut and beard grooming tips, style guides, and barbering advice from Moe's Barbershop in Erin, Ontario."
+  canonicalPath="/blog"
+  jsonLd={[blogJsonLd]}
+>
+  <Header />
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <p class="section-eyebrow">From the chair</p>
+        <h1>The Moe's Barbershop Blog</h1>
+        <p class="lead">
+          Style guides, grooming tips, and barbering know-how from our shop in
+          Erin, Ontario.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="post-grid">
+          {
+            posts.map((p) => (
+              <article class="post-card">
+                <div class="post-body">
+                  <div class="post-meta">
+                    <time datetime={p.data.pubDate.toISOString()}>
+                      {fmt(p.data.pubDate)}
+                    </time>
+                    {p.data.tags[0] && <span class="tag">{p.data.tags[0]}</span>}
+                  </div>
+                  <h2>
+                    <a href={`/blog/${p.id}`}>{p.data.title}</a>
+                  </h2>
+                  <p>{p.data.excerpt}</p>
+                  <a class="read-more" href={`/blog/${p.id}`}>
+                    Read article →
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .blog-hero {
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(224, 146, 47, 0.22), transparent 60%),
+      linear-gradient(180deg, var(--cream-soft), var(--cream));
+    padding: 64px 0 48px;
+  }
+
+  .blog-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+  }
+
+  .blog-hero .lead {
+    color: var(--muted);
+    max-width: 560px;
+    font-size: 1.1rem;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .post-card {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.08);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(58, 29, 20, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+
+  .post-body {
+    padding: 28px;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    background: rgba(224, 146, 47, 0.16);
+    color: var(--brown);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .post-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  .post-card h2 a:hover {
+    color: var(--orange);
+  }
+
+  .post-card p {
+    color: var(--muted);
+  }
+
+  .read-more {
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .read-more:hover {
+    color: var(--orange);
+  }
+
+  @media (max-width: 720px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -4,12 +4,28 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  /** Path-only canonical override, e.g. "/blog". Defaults to the current URL. */
+  canonicalPath?: string;
+  image?: string;
+  type?: "website" | "article";
+  /** Optional JSON-LD objects injected into <head>. */
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
-  title = "Moe's Barbershop | Erin, Ontario",
-  description = "Moe's Barbershop in Erin, Ontario. Classic cuts, fades, beard grooming and more. Rated 5.0 on Google. Book your appointment today.",
+  title = "Moe's Barbershop | Barber in Erin, Ontario",
+  description = "Moe's Barbershop in Erin, Ontario — classic cuts, skin fades, beard grooming and kids' cuts. Rated 5.0 on Google. Book your appointment online today.",
+  canonicalPath,
+  image = "/logo.svg",
+  type = "website",
+  jsonLd = [],
+  noindex = false,
 } = Astro.props;
+
+const siteUrl = "https://moesbarbershop.ca";
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, siteUrl).href;
+const imageUrl = new URL(image, siteUrl).href;
 ---
 
 <!doctype html>
@@ -18,14 +34,38 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="canonical" href={canonical} />
+
     <title>{title}</title>
     <meta name="description" content={description} />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+      )
+    }
+    <meta name="author" content="Moe's Barbershop" />
+    <meta name="theme-color" content="#5a2d20" />
+    <meta name="geo.region" content="CA-ON" />
+    <meta name="geo.placename" content="Erin, Ontario" />
 
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Moe's Barbershop" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://moesbarbershop.ca" />
-    <meta property="og:image" content="/logo.svg" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,6 +73,15 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    {
+      jsonLd.map((data) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(data)}
+        />
+      ))
+    }
   </head>
   <body>
     <slot />
