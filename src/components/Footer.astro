@@ -1,0 +1,110 @@
+---
+import { site } from "../data/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="foot-brand">
+      <img src="/logo.svg" alt="Moe's Barbershop logo" width="56" height="56" />
+      <div>
+        <strong>Moe's Barbershop</strong>
+        <p>{site.address.line1}, {site.address.city}, {site.address.region}</p>
+      </div>
+    </div>
+
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#staff">Staff</a>
+      <a href="#location">Location &amp; Hours</a>
+      <a href={site.instagram} target="_blank" rel="noopener">Instagram</a>
+    </nav>
+
+    <div class="foot-cta">
+      <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener">
+        Book Now
+      </a>
+      <a class="foot-phone" href={site.phoneHref}>{site.phone}</a>
+    </div>
+  </div>
+
+  <div class="container foot-bottom">
+    <span>© {year} Moe's Barbershop · moesbarbershop.ca</span>
+    <span>Erin, Ontario · All rights reserved</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--brown-dark);
+    color: var(--cream);
+    padding: 56px 0 28px;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(240, 228, 204, 0.15);
+  }
+
+  .foot-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .foot-brand img {
+    border-radius: 50%;
+  }
+
+  .foot-brand strong {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+
+  .foot-brand p {
+    margin: 2px 0 0;
+    color: rgba(240, 228, 204, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .foot-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+
+  .foot-nav a {
+    color: rgba(240, 228, 204, 0.85);
+    font-weight: 500;
+  }
+
+  .foot-nav a:hover {
+    color: var(--orange);
+  }
+
+  .foot-cta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .foot-phone {
+    color: var(--cream);
+    font-weight: 600;
+  }
+
+  .foot-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 22px;
+    color: rgba(240, 228, 204, 0.6);
+    font-size: 0.85rem;
+  }
+</style>

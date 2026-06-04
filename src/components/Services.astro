@@ -1,0 +1,125 @@
+---
+import { services, site } from "../data/site";
+---
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">What we do</p>
+      <h2 class="section-title">Services</h2>
+      <p>
+        From a quick lineup to the full Moe's experience. Every service is finished
+        with detail and pride.
+      </p>
+    </div>
+
+    <div class="grid">
+      {
+        services.map((s) => (
+          <article class="card">
+            <div class="card-top">
+              <h3>{s.name}</h3>
+              <span class="price">{s.price}</span>
+            </div>
+            <p class="desc">{s.description}</p>
+            <div class="card-foot">
+              <span class="duration">⏱ {s.duration}</span>
+              <a class="book-link" href={site.bookingUrl} target="_blank" rel="noopener">
+                Book →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: var(--cream-soft);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.08);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(58, 29, 20, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: rgba(224, 146, 47, 0.4);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .card-top h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .price {
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(90, 45, 32, 0.08);
+  }
+
+  .duration {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .book-link {
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .book-link:hover {
+    color: var(--orange);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

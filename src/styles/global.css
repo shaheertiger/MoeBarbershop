@@ -1,0 +1,139 @@
+:root {
+  --brown: #5a2d20;
+  --brown-dark: #3d1d14;
+  --orange: #e0922f;
+  --orange-light: #f0a94d;
+  --cream: #f0e4cc;
+  --cream-soft: #f7efde;
+  --ink: #2a1a12;
+  --muted: #7a6a5c;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(58, 29, 20, 0.12);
+  --radius: 16px;
+  --max: 1120px;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream-soft);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--brown);
+  line-height: 1.15;
+  margin: 0 0 0.4em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--brown);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 8px;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--brown-dark);
+  box-shadow: 0 8px 20px rgba(224, 146, 47, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--brown);
+  border-color: var(--brown);
+}
+
+.btn-outline:hover {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.btn-light {
+  background: var(--cream);
+  color: var(--brown-dark);
+}
+
+.btn-light:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 0;
+  }
+}

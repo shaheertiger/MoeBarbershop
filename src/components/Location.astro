@@ -1,0 +1,130 @@
+---
+import { site, hours } from "../data/site";
+
+const today = new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  timeZone: "America/Toronto",
+});
+---
+
+<section class="section location" id="location">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Come visit</p>
+      <h2 class="section-title">Location &amp; Hours</h2>
+    </div>
+
+    <div class="loc-grid">
+      <div class="loc-card info">
+        <h3>{site.name}</h3>
+        <address>
+          {site.address.line1}<br />
+          {site.address.city}, {site.address.region} {site.address.postal}
+        </address>
+        <p class="contact">
+          <a href={site.phoneHref}>{site.phone}</a><br />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <a class="btn btn-outline" href={site.mapsUrl} target="_blank" rel="noopener">
+          Get Directions →
+        </a>
+      </div>
+
+      <div class="loc-card hours">
+        <h3>Opening Hours</h3>
+        <ul>
+          {
+            hours.map((h) => (
+              <li class={h.day === today ? "is-today" : ""}>
+                <span class="day">{h.day}</span>
+                <span class="time">
+                  {h.open} – {h.close}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location {
+    background: var(--cream-soft);
+  }
+
+  .loc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .loc-card {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.08);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 4px 14px rgba(58, 29, 20, 0.05);
+  }
+
+  .loc-card h3 {
+    font-size: 1.4rem;
+  }
+
+  address {
+    font-style: normal;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .contact a {
+    color: var(--brown);
+    font-weight: 500;
+  }
+
+  .contact {
+    margin-bottom: 22px;
+  }
+
+  .hours ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 12px;
+    border-radius: 8px;
+    border-bottom: 1px solid rgba(90, 45, 32, 0.06);
+  }
+
+  .hours li:last-child {
+    border-bottom: none;
+  }
+
+  .hours .day {
+    font-weight: 500;
+  }
+
+  .hours .time {
+    color: var(--muted);
+  }
+
+  .hours .is-today {
+    background: rgba(224, 146, 47, 0.16);
+  }
+
+  .hours .is-today .day {
+    color: var(--brown);
+    font-weight: 700;
+  }
+
+  @media (max-width: 820px) {
+    .loc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
