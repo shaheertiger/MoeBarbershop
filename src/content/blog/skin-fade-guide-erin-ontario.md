@@ -5,6 +5,7 @@ pubDate: 2026-02-12
 author: "Moe"
 tags: ["fades", "haircuts", "style guide"]
 excerpt: "Low, mid, high, or burst? Here's how to pick the skin fade that actually suits your face shape, hair type, and how much upkeep you want."
+heroImage: "/images/beard-trim.jpg"
 ---
 
 The skin fade isn't going anywhere in 2026 — it's still the most-requested cut in

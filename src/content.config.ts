@@ -11,6 +11,7 @@ const blog = defineCollection({
     author: z.string().default("Moe's Barbershop"),
     tags: z.array(z.string()).default([]),
     excerpt: z.string(),
+    heroImage: z.string().optional(),
   }),
 });
 

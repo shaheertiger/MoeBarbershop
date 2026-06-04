@@ -5,6 +5,7 @@ pubDate: 2026-03-20
 author: "Moe"
 tags: ["beard care", "grooming", "tips"]
 excerpt: "A great beard fade and lineup is half the barber, half what you do at home. Here's how to keep your edges crisp between visits."
+heroImage: "/images/styling.jpg"
 ---
 
 A beard fade and lineup looks incredible the day you leave the chair — the

@@ -53,6 +53,17 @@ const blogJsonLd = {
           {
             posts.map((p) => (
               <article class="post-card">
+                {p.data.heroImage && (
+                  <a href={`/blog/${p.id}`} class="post-thumb">
+                    <img
+                      src={p.data.heroImage}
+                      alt={p.data.title}
+                      loading="lazy"
+                      width="600"
+                      height="340"
+                    />
+                  </a>
+                )}
                 <div class="post-body">
                   <div class="post-meta">
                     <time datetime={p.data.pubDate.toISOString()}>
@@ -113,6 +124,24 @@ const blogJsonLd = {
   .post-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow);
+  }
+
+  .post-thumb {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .post-card:hover .post-thumb img {
+    transform: scale(1.05);
   }
 
   .post-body {
