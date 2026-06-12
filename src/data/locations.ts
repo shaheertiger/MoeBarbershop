@@ -33,7 +33,7 @@ export const locationPages: LocationPage[] = [
     slug: "hillsburgh",
     town: "Hillsburgh",
     region: "Ontario",
-    distance: "About 7 minutes from Hillsburgh",
+    distance: "A short drive from Hillsburgh on Trafalgar Rd",
     intro: [
       "Looking for a barber near Hillsburgh? Moe's Barbershop is just a short drive away in neighbouring Erin, Ontario. Hillsburgh clients come to us for sharp skin fades, beard trims, men's cuts and kids' haircuts.",
       "It's an easy trip down Trafalgar Rd — book online to lock in your time, or walk in when a chair is open.",
@@ -244,6 +244,46 @@ export function getLocationPage(slug: string): LocationPage | undefined {
   return locationPages.find((l) => l.slug === slug);
 }
 
+/**
+ * Honest, useful Q&As built from real shop data — no invented distances or
+ * claims. The home town (Erin) gets a location-appropriate variant.
+ */
+export function locationFaqs(l: LocationPage): { q: string; a: string }[] {
+  const addr = `${site.address.line1} in ${site.address.city}, ${site.address.region}`;
+  const others = l.nearby.filter((n) => n !== l.town);
+  const nearbyLine = others.length
+    ? ` We also serve ${others.join(", ")} and the wider ${l.region} area.`
+    : "";
+
+  if (l.town === HOME) {
+    return [
+      {
+        q: `Where is Moe's Barbershop in ${l.town}?`,
+        a: `Moe's Barbershop is at ${addr} (${site.address.postal}), right in ${l.town}. Call ${site.phone} or book online.`,
+      },
+      {
+        q: `What can I book at Moe's Barbershop in ${l.town}?`,
+        a: `Men's haircuts, skin fades, beard trims and lineups, haircut-and-beard combos, kids' cuts and senior cuts. Walk in when a chair is open or book online to reserve your time.${nearbyLine}`,
+      },
+    ];
+  }
+
+  return [
+    {
+      q: `Does Moe's Barbershop serve ${l.town}, ${l.region}?`,
+      a: `Yes — ${l.town} is within the area Moe's Barbershop serves. We're located a short drive away at ${addr}.${nearbyLine}`,
+    },
+    {
+      q: `How far is Moe's Barbershop from ${l.town}?`,
+      a: `We're at ${addr} — a short drive from ${l.town}. Use the "Get Directions" link or your maps app for the exact route from where you are.`,
+    },
+    {
+      q: `What can ${l.town} clients book at Moe's Barbershop?`,
+      a: `Men's haircuts, skin fades, beard trims and lineups, haircut-and-beard combos, kids' cuts and senior cuts. Book online to reserve a time, or walk in when a chair is open.`,
+    },
+  ];
+}
+
 /** LocalBusiness + breadcrumb JSON-LD for a town landing page. */
 export function locationPageJsonLd(l: LocationPage) {
   const url = `${SITE_URL}/areas/${l.slug}`;
@@ -306,6 +346,15 @@ export function locationPageJsonLd(l: LocationPage) {
           item: url,
         },
       ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: locationFaqs(l).map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ];
 }

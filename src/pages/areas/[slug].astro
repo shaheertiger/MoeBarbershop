@@ -6,6 +6,7 @@ import { site, hours } from "../../data/site";
 import {
   locationPages,
   locationPageJsonLd,
+  locationFaqs,
   type LocationPage,
 } from "../../data/locations";
 import { servicePages } from "../../data/servicePages";
@@ -29,6 +30,7 @@ const today = new Date().toLocaleDateString("en-US", {
 });
 
 const popular = servicePages.slice(0, 6);
+const faqs = locationFaqs(location);
 ---
 
 <Layout
@@ -91,6 +93,18 @@ const popular = servicePages.slice(0, 6);
                 </>
               )
             }
+
+            <h2 class="block-title">{location.town} barber FAQs</h2>
+            <div class="faqs">
+              {
+                faqs.map((f) => (
+                  <details class="faq-item">
+                    <summary>{f.q}</summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))
+              }
+            </div>
           </div>
 
           <aside class="area-side">
@@ -212,6 +226,29 @@ const popular = servicePages.slice(0, 6);
   }
 
   .nearby {
+    color: var(--muted);
+  }
+
+  .faqs {
+    display: grid;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+
+  .faq-item summary {
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--brown);
+  }
+
+  .faq-item p {
+    margin: 10px 0 0;
     color: var(--muted);
   }
 
