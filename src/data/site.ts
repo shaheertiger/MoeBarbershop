@@ -59,6 +59,12 @@ export const areaServed = [
   "Rockwood, Ontario",
   "Fergus, Ontario",
   "Elora, Ontario",
+  "Ballinafad, Ontario",
+  "Ospringe, Ontario",
+  "Eden Mills, Ontario",
+  "Belfountain, Ontario",
+  "Inglewood, Ontario",
+  "Caledon East, Ontario",
   "Halton Hills, Ontario",
   "Wellington County, Ontario",
 ];

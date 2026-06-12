@@ -45,8 +45,9 @@
 ## Areas served
 
 Erin, Hillsburgh, Caledon, Orangeville, Georgetown, Acton, Guelph, Rockwood,
-Fergus, Elora, Halton Hills, and the wider Wellington County region of Ontario,
-Canada.
+Fergus, Elora, Ballinafad, Ospringe, Eden Mills, Everton, Belwood, Belfountain,
+Inglewood, Cheltenham, Alton, Caledon East, Halton Hills, and the wider
+Wellington County region of Ontario, Canada.
 
 ## Pages
 
@@ -81,6 +82,16 @@ Canada.
 - [Barber near Rockwood](https://www.moesbarbershop.ca/areas/rockwood)
 - [Barber near Fergus](https://www.moesbarbershop.ca/areas/fergus)
 - [Barber near Elora](https://www.moesbarbershop.ca/areas/elora)
+- [Barber near Ballinafad](https://www.moesbarbershop.ca/areas/ballinafad)
+- [Barber near Ospringe](https://www.moesbarbershop.ca/areas/ospringe)
+- [Barber near Eden Mills](https://www.moesbarbershop.ca/areas/eden-mills)
+- [Barber near Everton](https://www.moesbarbershop.ca/areas/everton)
+- [Barber near Belwood](https://www.moesbarbershop.ca/areas/belwood)
+- [Barber near Belfountain](https://www.moesbarbershop.ca/areas/belfountain)
+- [Barber near Inglewood](https://www.moesbarbershop.ca/areas/inglewood)
+- [Barber near Cheltenham](https://www.moesbarbershop.ca/areas/cheltenham)
+- [Barber near Alton](https://www.moesbarbershop.ca/areas/alton)
+- [Barber near Caledon East](https://www.moesbarbershop.ca/areas/caledon-east)
 
 ## Booking
 

@@ -128,6 +128,116 @@ export const locationPages: LocationPage[] = [
     ],
     nearby: ["Elora", "Centre Wellington", "Wellington County"],
   },
+  {
+    slug: "ballinafad",
+    town: "Ballinafad",
+    region: "Ontario",
+    distance: "Minutes from Ballinafad",
+    intro: [
+      "Ballinafad sits right between Erin and Acton, which makes Moe's Barbershop your closest full-service barber. Locals drop in for skin fades, beard lineups, men's cuts and kids' haircuts without the drive into the city.",
+      "Book online to lock in your time, or walk in when a chair's open.",
+    ],
+    nearby: ["Ballinafad", "Erin Township", "Crewson's Corners"],
+  },
+  {
+    slug: "ospringe",
+    town: "Ospringe",
+    region: "Ontario",
+    distance: "A short drive from Ospringe",
+    intro: [
+      "Ospringe is part of the Erin community Moe's Barbershop calls home, so a sharp cut is never far away. From classic haircuts to clean skin fades and beard work, we've got the chair for you.",
+      "Reserve online or swing by 99 Trafalgar Rd in Erin when you're nearby.",
+    ],
+    nearby: ["Ospringe", "Erin Township", "Brisbane"],
+  },
+  {
+    slug: "eden-mills",
+    town: "Eden Mills",
+    region: "Ontario",
+    distance: "A short drive from Eden Mills",
+    intro: [
+      "Eden Mills clients head to Moe's Barbershop in nearby Erin for precise, reliable men's grooming. Fades, beard lineups, haircut-and-beard combos and kids' cuts — all finished with detail.",
+      "Book your appointment online and skip the wait.",
+    ],
+    nearby: ["Eden Mills", "Guelph/Eramosa", "Rockwood"],
+  },
+  {
+    slug: "everton",
+    town: "Everton",
+    region: "Ontario",
+    distance: "A short drive from Everton",
+    intro: [
+      "From Everton, Moe's Barbershop in Erin is the easy choice for a great cut. Our barbers deliver sharp skin fades, beard shaping and classic styles with the same 5-star care every visit.",
+      "Book online or walk in when a chair opens up.",
+    ],
+    nearby: ["Everton", "Guelph/Eramosa", "Eramosa"],
+  },
+  {
+    slug: "belwood",
+    town: "Belwood",
+    region: "Ontario",
+    distance: "A short drive from Belwood",
+    intro: [
+      "Belwood and Lake Belwood clients make the short trip to Moe's Barbershop in Erin for cuts worth the drive. Classic haircuts, modern fades, beard lineups and kids' cuts — done right.",
+      "Reserve your chair online before you head over.",
+    ],
+    nearby: ["Belwood", "Centre Wellington", "Fergus"],
+  },
+  {
+    slug: "belfountain",
+    town: "Belfountain",
+    region: "Ontario",
+    distance: "A short drive from Belfountain",
+    intro: [
+      "Belfountain sits just over in Caledon, a quick drive from Moe's Barbershop in Erin. We're the local pick for skin fades, beard lineups, men's cuts and kids' haircuts.",
+      "Book online or drop in when a chair's free.",
+    ],
+    nearby: ["Belfountain", "Caledon", "Forks of the Credit"],
+  },
+  {
+    slug: "inglewood",
+    town: "Inglewood",
+    region: "Ontario",
+    distance: "A short drive from Inglewood",
+    intro: [
+      "Inglewood clients trust Moe's Barbershop in Erin for clean, consistent men's grooming. From low and high fades to beard fades and lineups, every cut is finished sharp.",
+      "Book your appointment online to make it quick.",
+    ],
+    nearby: ["Inglewood", "Caledon", "Caledon Village"],
+  },
+  {
+    slug: "cheltenham",
+    town: "Cheltenham",
+    region: "Ontario",
+    distance: "A short drive from Cheltenham",
+    intro: [
+      "From Cheltenham and the Caledon area, Moe's Barbershop in Erin is the go-to for sharp fades, beard work and classic cuts. Same 5-star detail, every chair.",
+      "Reserve online or walk in when one's open.",
+    ],
+    nearby: ["Cheltenham", "Caledon", "Terra Cotta"],
+  },
+  {
+    slug: "alton",
+    town: "Alton",
+    region: "Ontario",
+    distance: "A short drive from Alton",
+    intro: [
+      "Alton clients head to Moe's Barbershop in Erin for a barber that takes the time to get it right — skin fades, beard lineups, haircut-and-beard combos and kids' cuts.",
+      "Book your appointment online or drop by 99 Trafalgar Rd in Erin.",
+    ],
+    nearby: ["Alton", "Caledon", "Dufferin County"],
+  },
+  {
+    slug: "caledon-east",
+    town: "Caledon East",
+    region: "Ontario",
+    distance: "A short drive from Caledon East",
+    intro: [
+      "Caledon East clients who want a precise, personal cut make the trip to Moe's Barbershop in Erin. Classic haircuts, modern skin fades, beard shaping and kids' cuts — all 5-star rated.",
+      "Book online before you head over and your chair will be ready.",
+    ],
+    nearby: ["Caledon East", "Caledon", "Palgrave"],
+  },
 ];
 
 export function getLocationPage(slug: string): LocationPage | undefined {
