@@ -1,0 +1,226 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_URL, site } from "../../data/site";
+import { servicePages } from "../../data/servicePages";
+
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Barbershop Services at Moe's Barbershop",
+  itemListElement: servicePages.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: s.title,
+    url: `${SITE_URL}/services/${s.slug}`,
+  })),
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+  ],
+};
+---
+
+<Layout
+  title="Barbershop Services in Erin, Ontario | Moe's Barbershop"
+  description="Explore every service at Moe's Barbershop in Erin, Ontario — men's haircuts, skin fades, beard trims and lineups, kids' cuts, senior cuts and more. Prices and booking."
+  canonicalPath="/services"
+  jsonLd={[itemListJsonLd, breadcrumbJsonLd]}
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> / <span>Services</span>
+        </nav>
+        <p class="section-eyebrow">What we do</p>
+        <h1>Barbershop Services in Erin, Ontario</h1>
+        <p class="lead">
+          From a quick lineup to the full Moe's experience — explore our services,
+          prices and what's included, then book your chair online.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="svc-grid">
+          {
+            servicePages.map((s) => (
+              <article class="svc-card">
+                <a href={`/services/${s.slug}`} class="svc-thumb">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    loading="lazy"
+                    width="600"
+                    height="340"
+                  />
+                </a>
+                <div class="svc-body">
+                  <div class="svc-top">
+                    <h2>
+                      <a href={`/services/${s.slug}`}>{s.metaTitle}</a>
+                    </h2>
+                    <span class="price">from {s.priceFrom}</span>
+                  </div>
+                  <p>{s.summary}</p>
+                  <a class="read-more" href={`/services/${s.slug}`}>
+                    Learn more &amp; book →
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="svc-foot">
+          <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+            Book an Appointment
+          </a>
+          <a class="btn btn-outline" href="/#services">See the full price list</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(224, 146, 47, 0.22), transparent 60%),
+      linear-gradient(180deg, var(--cream-soft), var(--cream));
+    padding: 56px 0 44px;
+  }
+
+  .crumbs {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .crumbs a:hover {
+    color: var(--orange);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+  }
+
+  .lead {
+    color: var(--muted);
+    max-width: 600px;
+    font-size: 1.1rem;
+  }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .svc-card {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.08);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(58, 29, 20, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .svc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+
+  .svc-thumb {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .svc-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .svc-card:hover .svc-thumb img {
+    transform: scale(1.05);
+  }
+
+  .svc-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .svc-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .svc-top h2 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .svc-top h2 a:hover {
+    color: var(--orange);
+  }
+
+  .price {
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .svc-body p {
+    color: var(--muted);
+    flex: 1;
+  }
+
+  .read-more {
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .read-more:hover {
+    color: var(--orange);
+  }
+
+  .svc-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 900px) {
+    .svc-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .svc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

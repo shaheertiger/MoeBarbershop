@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_URL, site } from "../../data/site";
+import { locationPages } from "../../data/locations";
+
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Areas served by Moe's Barbershop",
+  itemListElement: locationPages.map((l, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: `Barber in ${l.town}, ${l.region}`,
+    url: `${SITE_URL}/areas/${l.slug}`,
+  })),
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Areas We Serve", item: `${SITE_URL}/areas` },
+  ],
+};
+---
+
+<Layout
+  title="Areas We Serve | Barber near Erin, Hillsburgh & Wellington County"
+  description="Moe's Barbershop serves Erin, Hillsburgh, Caledon, Orangeville, Georgetown, Acton and the wider Wellington County area of Ontario. Find your local barber and book online."
+  canonicalPath="/areas"
+  jsonLd={[itemListJsonLd, breadcrumbJsonLd]}
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a> / <span>Areas We Serve</span>
+        </nav>
+        <p class="section-eyebrow">Local barber</p>
+        <h1>Areas We Serve Around Erin, Ontario</h1>
+        <p class="lead">
+          Based at 99 Trafalgar Rd in Erin, Moe's Barbershop is the go-to barber
+          for clients across Wellington County and the surrounding towns. Find
+          your area below.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="area-grid">
+          {
+            locationPages.map((l) => (
+              <a class="area-card" href={`/areas/${l.slug}`}>
+                <h2>Barber in {l.town}</h2>
+                <p class="dist">{l.distance}</p>
+                <span class="go">View {l.town} →</span>
+              </a>
+            ))
+          }
+        </div>
+
+        <div class="area-foot">
+          <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+            Book an Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(224, 146, 47, 0.22), transparent 60%),
+      linear-gradient(180deg, var(--cream-soft), var(--cream));
+    padding: 56px 0 44px;
+  }
+
+  .crumbs {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .crumbs a:hover {
+    color: var(--orange);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+  }
+
+  .lead {
+    color: var(--muted);
+    max-width: 620px;
+    font-size: 1.1rem;
+  }
+
+  .area-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .area-card {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.08);
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: 0 4px 14px rgba(58, 29, 20, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: rgba(224, 146, 47, 0.4);
+  }
+
+  .area-card h2 {
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .dist {
+    color: var(--muted);
+    font-size: 0.95rem;
+    flex: 1;
+    margin: 0;
+  }
+
+  .go {
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .area-card:hover .go {
+    color: var(--orange);
+  }
+
+  .area-foot {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 900px) {
+    .area-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .area-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

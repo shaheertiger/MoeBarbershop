@@ -50,9 +50,29 @@ County region of Ontario, Canada.
 ## Pages
 
 - [Home](https://moesbarbershop.ca/): Overview, services, gallery, FAQ, hours and location.
+- [Services](https://moesbarbershop.ca/services): All barbershop services with prices and details.
+- [Areas We Serve](https://moesbarbershop.ca/areas): Towns served around Erin and Wellington County.
 - [Blog](https://moesbarbershop.ca/blog): Men's haircut and grooming guides.
 - [The 2026 Skin Fade Guide](https://moesbarbershop.ca/blog/skin-fade-guide-erin-ontario/): How to choose a low, mid, high, burst or drop fade by face shape and upkeep.
 - [Beard Grooming 101](https://moesbarbershop.ca/blog/beard-grooming-tips/): Keeping a sharp beard lineup between barber visits.
+
+## Service pages
+
+- [Men's Haircuts in Erin](https://moesbarbershop.ca/services/mens-haircut): Classic and signature cuts from CAD$30.
+- [Skin Fades in Erin](https://moesbarbershop.ca/services/skin-fade): Low, mid, high, burst and drop fades from CAD$30.
+- [Beard Trims, Fades & Lineups](https://moesbarbershop.ca/services/beard-trim-and-lineup): Beard shaping and clean edges from CAD$30.
+- [Haircut & Beard Combo](https://moesbarbershop.ca/services/haircut-and-beard): Cut plus connected beard, CAD$50.
+- [Kids' Haircuts in Erin](https://moesbarbershop.ca/services/kids-haircut): Child-friendly cuts and designs from CAD$25.
+- [Senior Haircuts in Erin](https://moesbarbershop.ca/services/senior-haircut): Gentle, professional styling from CAD$25.
+
+## Area pages (local SEO)
+
+- [Barber in Erin](https://moesbarbershop.ca/areas/erin)
+- [Barber near Hillsburgh](https://moesbarbershop.ca/areas/hillsburgh)
+- [Barber near Caledon](https://moesbarbershop.ca/areas/caledon)
+- [Barber near Orangeville](https://moesbarbershop.ca/areas/orangeville)
+- [Barber near Georgetown](https://moesbarbershop.ca/areas/georgetown)
+- [Barber near Acton](https://moesbarbershop.ca/areas/acton)
 
 ## Booking
 

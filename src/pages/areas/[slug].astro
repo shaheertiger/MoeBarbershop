@@ -1,0 +1,286 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { site, hours } from "../../data/site";
+import {
+  locationPages,
+  locationPageJsonLd,
+  type LocationPage,
+} from "../../data/locations";
+import { servicePages } from "../../data/servicePages";
+
+export async function getStaticPaths() {
+  return locationPages.map((location) => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+interface Props {
+  location: LocationPage;
+}
+
+const { location } = Astro.props;
+
+const today = new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  timeZone: "America/Toronto",
+});
+
+const popular = servicePages.slice(0, 6);
+---
+
+<Layout
+  title={`Barber in ${location.town}, ${location.region} | Moe's Barbershop`}
+  description={`Looking for a barber near ${location.town}, ${location.region}? Moe's Barbershop in Erin offers skin fades, beard lineups, men's, kids' and senior haircuts. Rated 5.0 on Google. Book online.`}
+  canonicalPath={`/areas/${location.slug}`}
+  keywords={`barber ${location.town}, barbershop ${location.town} Ontario, men's haircut ${location.town}, skin fade ${location.town}, beard trim near ${location.town}`}
+  jsonLd={locationPageJsonLd(location)}
+>
+  <Header />
+  <main>
+    <article class="area">
+      <section class="area-hero">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a> / <a href="/areas">Areas We Serve</a> /
+            <span>{location.town}</span>
+          </nav>
+          <p class="section-eyebrow">Serving {location.town}, {location.region}</p>
+          <h1>Barber in {location.town}, {location.region}</h1>
+          <p class="lead">{location.distance} — rated 5.0★ by 100+ clients.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+              Book an Appointment
+            </a>
+            <a class="btn btn-outline" href={site.mapsUrl} target="_blank" rel="noopener">
+              Get Directions →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container area-grid">
+          <div class="area-main">
+            <div class="prose">
+              {location.intro.map((p) => <p>{p}</p>)}
+            </div>
+
+            <h2 class="block-title">Popular services for {location.town} clients</h2>
+            <div class="svc-links">
+              {
+                popular.map((s) => (
+                  <a class="svc-link" href={`/services/${s.slug}`}>
+                    <strong>{s.metaTitle}</strong>
+                    <span>from {s.priceFrom}</span>
+                  </a>
+                ))
+              }
+            </div>
+
+            {
+              location.nearby.length > 0 && (
+                <>
+                  <h2 class="block-title">Nearby {location.town}</h2>
+                  <p class="nearby">
+                    We're proud to serve {location.nearby.join(", ")} and the
+                    surrounding {location.region} communities.
+                  </p>
+                </>
+              )
+            }
+          </div>
+
+          <aside class="area-side">
+            <div class="side-card">
+              <h3>{site.name}</h3>
+              <address>
+                {site.address.line1}<br />
+                {site.address.city}, {site.address.region} {site.address.postal}
+              </address>
+              <p class="contact">
+                <a href={site.phoneHref}>{site.phone}</a>
+              </p>
+              <a class="btn btn-primary full" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+                Book Now
+              </a>
+            </div>
+
+            <div class="side-card">
+              <h3>Hours</h3>
+              <ul class="hours">
+                {
+                  hours.map((h) => (
+                    <li class={h.day === today ? "is-today" : ""}>
+                      <span>{h.day}</span>
+                      <span class="t">{h.open} – {h.close}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .area-hero {
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(224, 146, 47, 0.22), transparent 60%),
+      linear-gradient(180deg, var(--cream-soft), var(--cream));
+    padding: 52px 0 42px;
+  }
+
+  .crumbs {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .crumbs a:hover {
+    color: var(--orange);
+  }
+
+  .area-hero h1 {
+    font-size: clamp(2.1rem, 4.8vw, 3.3rem);
+  }
+
+  .lead {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin-bottom: 22px;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .area-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .prose {
+    font-size: 1.08rem;
+  }
+
+  .block-title {
+    font-size: 1.5rem;
+    margin-top: 1.6em;
+  }
+
+  .svc-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .svc-link {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.16s ease, border-color 0.2s ease;
+  }
+
+  .svc-link:hover {
+    transform: translateY(-3px);
+    border-color: rgba(224, 146, 47, 0.5);
+  }
+
+  .svc-link strong {
+    color: var(--brown);
+  }
+
+  .svc-link span {
+    color: var(--orange);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .nearby {
+    color: var(--muted);
+  }
+
+  .side-card {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.1);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(58, 29, 20, 0.05);
+    margin-bottom: 20px;
+  }
+
+  .side-card h3 {
+    font-size: 1.25rem;
+  }
+
+  address {
+    font-style: normal;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .contact {
+    margin-bottom: 16px;
+  }
+
+  .contact a {
+    color: var(--brown);
+    font-weight: 600;
+  }
+
+  .full {
+    width: 100%;
+  }
+
+  .hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(90, 45, 32, 0.06);
+  }
+
+  .hours li:last-child {
+    border-bottom: none;
+  }
+
+  .hours .t {
+    color: var(--muted);
+  }
+
+  .hours .is-today {
+    background: rgba(224, 146, 47, 0.16);
+    font-weight: 700;
+  }
+
+  @media (max-width: 820px) {
+    .area-grid {
+      grid-template-columns: 1fr;
+    }
+    .svc-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
