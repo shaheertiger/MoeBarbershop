@@ -84,6 +84,50 @@ export const locationPages: LocationPage[] = [
     ],
     nearby: ["Acton", "Halton Hills", "Prospect Park"],
   },
+  {
+    slug: "guelph",
+    town: "Guelph",
+    region: "Ontario",
+    distance: "A short drive from Guelph",
+    intro: [
+      "Guelph clients who want a barber that takes the time to get it right make the short trip to Moe's Barbershop in Erin. From precise skin fades to beard lineups and classic men's cuts, every chair gets the same 5-star attention.",
+      "It's an easy drive out to Erin — book your appointment online to skip the wait.",
+    ],
+    nearby: ["Guelph", "Guelph/Eramosa", "Wellington County"],
+  },
+  {
+    slug: "rockwood",
+    town: "Rockwood",
+    region: "Ontario",
+    distance: "A short drive from Rockwood",
+    intro: [
+      "Rockwood is right around the corner from Moe's Barbershop in Erin. Our Rockwood clients come in for sharp fades, beard work, kids' cuts and the full Moe's haircut experience.",
+      "Reserve your chair online or walk in when one's open.",
+    ],
+    nearby: ["Rockwood", "Guelph/Eramosa", "Eden Mills"],
+  },
+  {
+    slug: "fergus",
+    town: "Fergus",
+    region: "Ontario",
+    distance: "A short drive from Fergus",
+    intro: [
+      "From Fergus, Moe's Barbershop in Erin is the local choice for clean, reliable men's grooming — skin fades, beard lineups, haircut-and-beard combos and kids' cuts, all finished with detail.",
+      "Book online before you head over and your chair will be ready when you arrive.",
+    ],
+    nearby: ["Fergus", "Centre Wellington", "Wellington County"],
+  },
+  {
+    slug: "elora",
+    town: "Elora",
+    region: "Ontario",
+    distance: "A short drive from Elora",
+    intro: [
+      "Elora clients trust Moe's Barbershop in Erin for a cut that's worth the short drive. Classic haircuts, modern fades, beard shaping and kids' cuts — all with the 5-star detail we're known for.",
+      "Book your appointment online or drop in when a chair opens up.",
+    ],
+    nearby: ["Elora", "Centre Wellington", "Wellington County"],
+  },
 ];
 
 export function getLocationPage(slug: string): LocationPage | undefined {

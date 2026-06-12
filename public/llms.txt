@@ -44,8 +44,9 @@
 
 ## Areas served
 
-Erin, Hillsburgh, Caledon, Orangeville, Georgetown, and the wider Wellington
-County region of Ontario, Canada.
+Erin, Hillsburgh, Caledon, Orangeville, Georgetown, Acton, Guelph, Rockwood,
+Fergus, Elora, Halton Hills, and the wider Wellington County region of Ontario,
+Canada.
 
 ## Pages
 
@@ -55,6 +56,8 @@ County region of Ontario, Canada.
 - [Blog](https://moesbarbershop.ca/blog): Men's haircut and grooming guides.
 - [The 2026 Skin Fade Guide](https://moesbarbershop.ca/blog/skin-fade-guide-erin-ontario/): How to choose a low, mid, high, burst or drop fade by face shape and upkeep.
 - [Beard Grooming 101](https://moesbarbershop.ca/blog/beard-grooming-tips/): Keeping a sharp beard lineup between barber visits.
+- [How to Find the Best Barber in Erin](https://moesbarbershop.ca/blog/best-barber-erin-ontario/): What to look for when choosing a barber in Erin, Ontario.
+- [Men's Haircut Trends for 2026](https://moesbarbershop.ca/blog/mens-haircut-trends-2026/): The cuts defining 2026 and who they suit.
 
 ## Service pages
 
@@ -73,6 +76,10 @@ County region of Ontario, Canada.
 - [Barber near Orangeville](https://moesbarbershop.ca/areas/orangeville)
 - [Barber near Georgetown](https://moesbarbershop.ca/areas/georgetown)
 - [Barber near Acton](https://moesbarbershop.ca/areas/acton)
+- [Barber near Guelph](https://moesbarbershop.ca/areas/guelph)
+- [Barber near Rockwood](https://moesbarbershop.ca/areas/rockwood)
+- [Barber near Fergus](https://moesbarbershop.ca/areas/fergus)
+- [Barber near Elora](https://moesbarbershop.ca/areas/elora)
 
 ## Booking
 

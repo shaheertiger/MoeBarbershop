@@ -24,7 +24,7 @@ const {
   title = "Moe's Barbershop | Barber in Erin, Ontario",
   description = "Moe's Barbershop in Erin, Ontario — classic cuts, skin fades, beard grooming and kids' cuts. Rated 5.0 on Google. Book your appointment online today.",
   canonicalPath,
-  image = "/logo.svg",
+  image = "/images/hero-barbershop.jpg",
   type = "website",
   jsonLd = [],
   noindex = false,
@@ -92,6 +92,12 @@ const imageUrl = new URL(image, siteUrl).href;
     <meta name="twitter:image" content={imageUrl} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Moe's Barbershop Blog"
+      href="/rss.xml"
+    />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="apple-touch-icon" href="/logo.svg" />
 

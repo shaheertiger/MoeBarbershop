@@ -54,6 +54,12 @@ export const areaServed = [
   "Caledon, Ontario",
   "Orangeville, Ontario",
   "Georgetown, Ontario",
+  "Acton, Ontario",
+  "Guelph, Ontario",
+  "Rockwood, Ontario",
+  "Fergus, Ontario",
+  "Elora, Ontario",
+  "Halton Hills, Ontario",
   "Wellington County, Ontario",
 ];
 
