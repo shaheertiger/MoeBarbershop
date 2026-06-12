@@ -54,4 +54,5 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 # Structured summary for LLMs: /llms.txt
+Sitemap: https://moesbarbershop.ca/sitemap.xml
 Sitemap: https://moesbarbershop.ca/sitemap-index.xml
