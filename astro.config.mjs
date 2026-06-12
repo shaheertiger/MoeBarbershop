@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build
 export default defineConfig({
-  site: 'https://moesbarbershop.ca',
+  site: 'https://www.moesbarbershop.ca',
   trailingSlash: 'ignore',
   integrations: [
     sitemap({

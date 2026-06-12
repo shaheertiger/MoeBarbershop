@@ -1,4 +1,4 @@
-# Moe's Barbershop — https://moesbarbershop.ca
+# Moe's Barbershop — https://www.moesbarbershop.ca
 # We welcome search engines and AI / LLM crawlers.
 
 User-agent: *
@@ -54,5 +54,5 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 # Structured summary for LLMs: /llms.txt
-Sitemap: https://moesbarbershop.ca/sitemap.xml
-Sitemap: https://moesbarbershop.ca/sitemap-index.xml
+Sitemap: https://www.moesbarbershop.ca/sitemap.xml
+Sitemap: https://www.moesbarbershop.ca/sitemap-index.xml
