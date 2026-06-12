@@ -53,6 +53,7 @@ Canada.
 - [Home](https://moesbarbershop.ca/): Overview, services, gallery, FAQ, hours and location.
 - [Services](https://moesbarbershop.ca/services): All barbershop services with prices and details.
 - [Areas We Serve](https://moesbarbershop.ca/areas): Towns served around Erin and Wellington County.
+- [About](https://moesbarbershop.ca/about): Meet Moe, the owner and master barber, and the shop's approach.
 - [Blog](https://moesbarbershop.ca/blog): Men's haircut and grooming guides.
 - [The 2026 Skin Fade Guide](https://moesbarbershop.ca/blog/skin-fade-guide-erin-ontario/): How to choose a low, mid, high, burst or drop fade by face shape and upkeep.
 - [Beard Grooming 101](https://moesbarbershop.ca/blog/beard-grooming-tips/): Keeping a sharp beard lineup between barber visits.

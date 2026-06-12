@@ -1,0 +1,232 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_URL, site, knowsAbout, areaServed } from "../data/site";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE_URL}/about#moe`,
+  name: "Moe",
+  jobTitle: "Owner & Master Barber",
+  worksFor: { "@id": `${SITE_URL}/#business` },
+  url: `${SITE_URL}/about`,
+  image: `${SITE_URL}/logo.svg`,
+  knowsAbout,
+  areaServed: areaServed.map((name) => ({ "@type": "City", name })),
+};
+
+const aboutPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${SITE_URL}/about#webpage`,
+  url: `${SITE_URL}/about`,
+  name: "About Moe's Barbershop",
+  about: { "@id": `${SITE_URL}/#business` },
+  mainEntity: { "@id": `${SITE_URL}/about#moe` },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "About", item: `${SITE_URL}/about` },
+  ],
+};
+---
+
+<Layout
+  title="About Moe's Barbershop | Meet Moe, Erin's 5-Star Barber"
+  description="Meet Moe — owner and master barber at Moe's Barbershop in Erin, Ontario. Classic cuts, skin fades and beard work delivered with craftsmanship and a 5.0 Google rating."
+  canonicalPath="/about"
+  keywords="Moe's Barbershop owner, best barber Erin Ontario, master barber Erin, about Moe's Barbershop"
+  jsonLd={[personJsonLd, aboutPageJsonLd, breadcrumbJsonLd]}
+>
+  <Header />
+  <main>
+    <section class="about-hero">
+      <div class="container about-grid">
+        <div class="about-text">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a> / <span>About</span>
+          </nav>
+          <p class="section-eyebrow">Meet your barber</p>
+          <h1>About Moe's Barbershop</h1>
+          <p class="lead">
+            Sharp cuts, classic vibes, and a 5.0★ reputation built one chair at a
+            time in Erin, Ontario.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+              Book an Appointment
+            </a>
+            <a class="btn btn-outline" href={site.mapsUrl} target="_blank" rel="noopener">
+              Read our reviews →
+            </a>
+          </div>
+        </div>
+        <img
+          class="about-img"
+          src="/images/hero-barbershop.jpg"
+          alt="Moe giving a precision cut at Moe's Barbershop in Erin, Ontario"
+          width="640"
+          height="800"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow prose">
+        <h2>Erin's go-to barbershop</h2>
+        <p>
+          Moe's Barbershop is a 5-star men's barbershop in the heart of Erin,
+          Ontario, at 99 Trafalgar Rd. Owner and master barber <strong>Moe</strong>
+          built the shop around one simple idea: every client deserves a precise,
+          personal cut and an honest, welcoming chair — no rushing, no shortcuts.
+        </p>
+        <p>
+          That focus on craftsmanship has earned Moe's a <strong>5.0 rating across
+          {site.reviewCount}+ Google reviews</strong> from clients across Erin,
+          Hillsburgh, and the wider Wellington County area.
+        </p>
+
+        <h2>What Moe specializes in</h2>
+        <ul class="checklist">
+          {knowsAbout.map((k) => <li>{k}</li>)}
+        </ul>
+
+        <h2>Our approach</h2>
+        <p>
+          Every appointment starts with a consultation. We listen to how you wear
+          your hair, what works for your routine, and the look you're after — then
+          deliver it with detail and finish it sharp. Whether it's a
+          <a href="/services/skin-fade"> skin fade</a>, a
+          <a href="/services/beard-trim-and-lineup"> beard lineup</a>, a
+          <a href="/services/kids-haircut"> kids' cut</a> or the full
+          <a href="/services/mens-haircut"> Moe's Haircut</a>, you'll leave looking
+          your best.
+        </p>
+
+        <h2>Visit us in Erin</h2>
+        <p>
+          Find us at {site.address.line1}, {site.address.city}, {site.address.region}.
+          Book online at <a href={site.bookingUrl} target="_blank" rel="noopener">our
+          Square page</a>, call <a href={site.phoneHref}>{site.phone}</a>, or walk in
+          when a chair is open. Serving Erin and the surrounding Wellington County
+          communities.
+        </p>
+
+        <div class="about-cta">
+          <h3>Ready for a fresh cut?</h3>
+          <p>Book your chair at Moe's Barbershop today.</p>
+          <a class="btn btn-light" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+            Book an Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .about-hero {
+    background:
+      radial-gradient(120% 90% at 85% -10%, rgba(224, 146, 47, 0.22), transparent 60%),
+      linear-gradient(180deg, var(--cream-soft), var(--cream));
+    padding: 48px 0 40px;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 36px;
+    align-items: center;
+  }
+  .crumbs {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+  .crumbs a:hover {
+    color: var(--orange);
+  }
+  .about-text h1 {
+    font-size: clamp(2.1rem, 4.8vw, 3.3rem);
+  }
+  .lead {
+    font-size: 1.18rem;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .about-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .narrow {
+    max-width: 760px;
+  }
+  .prose {
+    font-size: 1.08rem;
+  }
+  .prose h2 {
+    font-size: 1.6rem;
+    margin-top: 1.6em;
+  }
+  .prose a {
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .checklist {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .checklist li {
+    position: relative;
+    padding-left: 30px;
+  }
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 800;
+  }
+  .about-cta {
+    background: var(--brown);
+    color: var(--cream);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  .about-cta h3 {
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .about-cta p {
+    color: rgba(240, 228, 204, 0.85);
+  }
+  @media (max-width: 820px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-img {
+      order: -1;
+      max-width: 360px;
+    }
+  }
+</style>

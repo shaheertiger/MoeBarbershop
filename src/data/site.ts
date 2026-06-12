@@ -84,6 +84,7 @@ export function localBusinessJsonLd() {
   const bizId = `${SITE_URL}/#business`;
   const siteId = `${SITE_URL}/#website`;
   const pageId = `${SITE_URL}/#webpage`;
+  const moeId = `${SITE_URL}/about#moe`;
 
   return {
     "@context": "https://schema.org",
@@ -97,6 +98,7 @@ export function localBusinessJsonLd() {
         image: `${SITE_URL}/logo.svg`,
         email: site.email,
         telephone: site.phoneE164,
+        founder: { "@id": moeId },
         sameAs: [site.instagram, site.bookingUrl],
       },
       {
@@ -159,6 +161,7 @@ export function localBusinessJsonLd() {
           bestRating: "5",
           worstRating: "1",
         },
+        employee: { "@id": moeId },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Barbershop Services",
@@ -176,6 +179,16 @@ export function localBusinessJsonLd() {
             },
           })),
         },
+      },
+      {
+        "@type": "Person",
+        "@id": moeId,
+        name: "Moe",
+        jobTitle: "Owner & Master Barber",
+        worksFor: { "@id": bizId },
+        knowsAbout,
+        image: `${SITE_URL}/logo.svg`,
+        url: `${SITE_URL}/about`,
       },
       {
         "@type": "WebSite",

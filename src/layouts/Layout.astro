@@ -72,6 +72,7 @@ const imageUrl = new URL(image, siteUrl).href;
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content="en_CA" />
     {type === "article" && publishedTime && (
       <meta property="article:published_time" content={publishedTime} />
