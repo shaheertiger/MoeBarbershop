@@ -60,8 +60,20 @@ export const areaServed = [
   "Fergus, Ontario",
   "Elora, Ontario",
   "Halton Hills, Ontario",
+  "Milton, Ontario",
+  "Brampton, Ontario",
+  "Cambridge, Ontario",
+  "Kitchener, Ontario",
+  "Grand Valley, Ontario",
+  "Shelburne, Ontario",
+  "Arthur, Ontario",
+  "Belwood, Ontario",
+  "Mono, Ontario",
   "Wellington County, Ontario",
 ];
+
+/** Radius, in metres, around the shop that we actively serve (~50 km). */
+export const SERVICE_RADIUS_M = 50000;
 
 /** Topics the shop is an authority on — used for schema knowsAbout. */
 export const knowsAbout = [
@@ -130,6 +142,17 @@ export function localBusinessJsonLd() {
         },
         hasMap: site.mapsUrl,
         areaServed: areaServed.map((name) => ({ "@type": "City", name })),
+        // Explicit ~50 km service radius around the shop — a strong local signal
+        // for both Google and AI answer engines ("barbershop near me / within 50 km").
+        serviceArea: {
+          "@type": "GeoCircle",
+          geoMidpoint: {
+            "@type": "GeoCoordinates",
+            latitude: site.geo.lat,
+            longitude: site.geo.lng,
+          },
+          geoRadius: SERVICE_RADIUS_M,
+        },
         knowsAbout,
         sameAs: [site.instagram, site.bookingUrl],
         potentialAction: {

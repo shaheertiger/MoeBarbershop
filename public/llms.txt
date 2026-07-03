@@ -44,9 +44,11 @@
 
 ## Areas served
 
-Erin, Hillsburgh, Caledon, Orangeville, Georgetown, Acton, Guelph, Rockwood,
-Fergus, Elora, Halton Hills, and the wider Wellington County region of Ontario,
-Canada.
+Moe's Barbershop serves clients across roughly a 50 km radius of Erin, Ontario,
+spanning Wellington County, Dufferin County, Halton Region and Peel Region:
+Erin, Hillsburgh, Belwood, Rockwood, Guelph, Fergus, Elora, Grand Valley,
+Caledon, Orangeville, Mono, Shelburne, Georgetown, Acton, Halton Hills, Milton,
+Brampton, Cambridge, Kitchener, Waterloo and Arthur, Ontario, Canada.
 
 ## Pages
 
@@ -80,6 +82,16 @@ Canada.
 - [Barber near Rockwood](https://moesbarbershop.ca/areas/rockwood)
 - [Barber near Fergus](https://moesbarbershop.ca/areas/fergus)
 - [Barber near Elora](https://moesbarbershop.ca/areas/elora)
+- [Barber near Halton Hills](https://moesbarbershop.ca/areas/halton-hills)
+- [Barber near Milton](https://moesbarbershop.ca/areas/milton)
+- [Barber near Brampton](https://moesbarbershop.ca/areas/brampton)
+- [Barber near Cambridge](https://moesbarbershop.ca/areas/cambridge)
+- [Barber near Kitchener](https://moesbarbershop.ca/areas/kitchener)
+- [Barber near Grand Valley](https://moesbarbershop.ca/areas/grand-valley)
+- [Barber near Shelburne](https://moesbarbershop.ca/areas/shelburne)
+- [Barber near Arthur](https://moesbarbershop.ca/areas/arthur)
+- [Barber near Belwood](https://moesbarbershop.ca/areas/belwood)
+- [Barber near Mono](https://moesbarbershop.ca/areas/mono)
 
 ## Booking
 

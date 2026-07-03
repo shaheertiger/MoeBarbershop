@@ -1,0 +1,61 @@
+---
+import { locationPages } from "../data/locations";
+---
+
+<section class="section areas" id="areas">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Serving the region</p>
+      <h2 class="section-title">Your Local Barber Within 50 km of Erin</h2>
+      <p>
+        From our chair at 99 Trafalgar Rd, Moe's Barbershop draws clients from
+        right across Wellington County, Dufferin, Halton and Peel. Find your town
+        below — or <a href="/areas">see every area we serve →</a>
+      </p>
+    </div>
+
+    <ul class="area-chips">
+      {
+        locationPages.map((l) => (
+          <li>
+            <a href={`/areas/${l.slug}`}>Barber in {l.town}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .areas {
+    background: var(--cream);
+  }
+
+  .area-chips {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .area-chips a {
+    display: inline-block;
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.1);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 600;
+    color: var(--brown);
+    box-shadow: 0 2px 8px rgba(58, 29, 20, 0.04);
+    transition: transform 0.16s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .area-chips a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(224, 146, 47, 0.5);
+    color: var(--orange);
+  }
+</style>
