@@ -128,6 +128,116 @@ export const locationPages: LocationPage[] = [
     ],
     nearby: ["Elora", "Centre Wellington", "Wellington County"],
   },
+  {
+    slug: "halton-hills",
+    town: "Halton Hills",
+    region: "Ontario",
+    distance: "About 15 minutes from Halton Hills",
+    intro: [
+      "Right next door to Halton Hills, Moe's Barbershop in Erin is the local barber for Georgetown, Acton, Glen Williams and the surrounding town. From razor-clean skin fades to beard lineups, kids' cuts and the signature Moe's Haircut, every chair gets the same 5-star attention.",
+      "It's a quick, easy drive from anywhere in Halton Hills — book online to lock in your time, or walk in when a chair opens up.",
+    ],
+    nearby: ["Georgetown", "Acton", "Glen Williams", "Limehouse"],
+  },
+  {
+    slug: "milton",
+    town: "Milton",
+    region: "Ontario",
+    distance: "About 30 minutes from Milton",
+    intro: [
+      "Milton clients who want a barber that takes the time to get it right make the short trip out to Moe's Barbershop in Erin. Skin fades, beard fades and lineups, men's, senior and kids' cuts — every service is finished with the detail that's earned us a 5.0 Google rating from 100+ clients.",
+      "Escape the crowded chain shops — book your appointment online and get a real, unhurried cut a short drive north of Milton.",
+    ],
+    nearby: ["Milton", "Campbellville", "Halton", "Moffat"],
+  },
+  {
+    slug: "brampton",
+    town: "Brampton",
+    region: "Ontario",
+    distance: "About 35 minutes from Brampton",
+    intro: [
+      "From Brampton, Moe's Barbershop in Erin is the destination barber for men who want a precise, connected cut without the wait. We specialize in seamless skin fades, sharp beard lineups and haircut-and-beard combos, all tailored to your face shape and upkeep.",
+      "It's an easy drive northwest through Caledon — book online before you head over and your chair will be ready when you arrive.",
+    ],
+    nearby: ["Brampton", "Caledon", "Bramalea", "Peel Region"],
+  },
+  {
+    slug: "cambridge",
+    town: "Cambridge",
+    region: "Ontario",
+    distance: "About 35 minutes from Cambridge",
+    intro: [
+      "Cambridge clients make the short trip to Moe's Barbershop in Erin for a cut that's worth it. Low, mid and high skin fades, beard shaping, classic men's cuts and kids' haircuts — all finished with the 5-star precision we're known for across Wellington County.",
+      "Reserve your chair online for an easy in-and-out, or drop by when you're passing through Erin.",
+    ],
+    nearby: ["Cambridge", "Galt", "Preston", "Hespeler"],
+  },
+  {
+    slug: "kitchener",
+    town: "Kitchener",
+    region: "Ontario",
+    distance: "About 40 minutes from Kitchener",
+    intro: [
+      "Kitchener–Waterloo clients who want a barber that sweats the details make the drive out to Moe's Barbershop in Erin. From razor-sharp skin fades to beard lineups and the full signature Moe's Haircut, every visit gets the same careful, unhurried service.",
+      "It's a straight shot east toward Erin — book your appointment online to skip the wait and guarantee your spot.",
+    ],
+    nearby: ["Kitchener", "Waterloo", "Breslau", "Region of Waterloo"],
+  },
+  {
+    slug: "grand-valley",
+    town: "Grand Valley",
+    region: "Ontario",
+    distance: "About 20 minutes from Grand Valley",
+    intro: [
+      "Grand Valley is a quick drive from Moe's Barbershop in Erin. Our Grand Valley clients come in for sharp fades, beard work, kids' cuts and the full Moe's haircut experience — the same 5-star detail, without the big-city drive.",
+      "Reserve your chair online or walk in when one's open.",
+    ],
+    nearby: ["Grand Valley", "East Luther", "Waldemar", "Dufferin County"],
+  },
+  {
+    slug: "shelburne",
+    town: "Shelburne",
+    region: "Ontario",
+    distance: "About 35 minutes from Shelburne",
+    intro: [
+      "From Shelburne, Moe's Barbershop in Erin is worth the drive for men who want a genuinely sharp, detailed cut. Skin fades, beard lineups, haircut-and-beard combos and kids' cuts — all delivered with the precision that's earned us 100+ five-star reviews.",
+      "Book online before you head south and your chair will be ready when you arrive.",
+    ],
+    nearby: ["Shelburne", "Mono", "Melancthon", "Dufferin County"],
+  },
+  {
+    slug: "arthur",
+    town: "Arthur",
+    region: "Ontario",
+    distance: "About 35 minutes from Arthur",
+    intro: [
+      "Arthur clients trust Moe's Barbershop in Erin for a cut that's worth the trip. Classic haircuts, modern skin fades, beard shaping and kids' cuts — all with the 5-star attention to detail we're known for across Wellington County.",
+      "Book your appointment online or drop in when a chair opens up.",
+    ],
+    nearby: ["Arthur", "Kenilworth", "Mount Forest", "Wellington North"],
+  },
+  {
+    slug: "belwood",
+    town: "Belwood",
+    region: "Ontario",
+    distance: "About 15 minutes from Belwood",
+    intro: [
+      "Belwood is right around the corner from Moe's Barbershop in Erin. Whether you're coming from the lake or the village, we're your close-to-home barber for sharp skin fades, beard lineups, men's and kids' cuts.",
+      "It's a short hop down toward Erin — book online to lock in your time, or walk in when a chair is open.",
+    ],
+    nearby: ["Belwood", "Belwood Lake", "Fergus", "Centre Wellington"],
+  },
+  {
+    slug: "mono",
+    town: "Mono",
+    region: "Ontario",
+    distance: "About 25 minutes from Mono",
+    intro: [
+      "Mono and Orangeville-area clients make the short trip to Moe's Barbershop in Erin for men's grooming done right. From clean fades to beard lineups and the signature Moe's Haircut, every chair gets the same 5-star care.",
+      "Book your appointment online for an easy in-and-out, or walk in when a chair opens up.",
+    ],
+    nearby: ["Mono", "Orangeville", "Camilla", "Dufferin County"],
+  },
 ];
 
 export function getLocationPage(slug: string): LocationPage | undefined {
