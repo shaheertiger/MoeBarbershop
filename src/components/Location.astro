@@ -127,4 +127,21 @@ const today = new Date().toLocaleDateString("en-US", {
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 480px) {
+    .loc-card {
+      padding: 24px 20px;
+    }
+
+    .hours li {
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 10px 4px;
+      font-size: 0.92rem;
+    }
+
+    .loc-card .btn {
+      width: 100%;
+    }
+  }
 </style>
