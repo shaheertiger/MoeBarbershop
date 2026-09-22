@@ -1,12 +1,16 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build
 export default defineConfig({
   site: 'https://www.moesbarbershop.ca',
   trailingSlash: 'ignore',
-  output: 'server',
+  // Every page is prerendered to static HTML (served from Vercel's CDN).
+  // The adapter is only here for Vercel Web Analytics — don't switch to
+  // output: 'server', it silently disables getStaticPaths() and 500s every
+  // /blog, /services and /areas page.
+  output: 'static',
   adapter: vercel({
     webAnalytics: {
       enabled: true,
@@ -20,6 +24,9 @@ export default defineConfig({
       // money pages (services, areas) as most important.
       serialize(item) {
         const path = new URL(item.url).pathname.replace(/\/$/, '');
+
+        // List the canonical, slash-less URL (vercel.json 308s "/about/").
+        if (path !== '') item.url = new URL(path, item.url).href;
 
         if (path === '') {
           item.priority = 1.0;

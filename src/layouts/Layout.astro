@@ -159,5 +159,19 @@ const imageUrl = new URL(image, siteUrl).href;
   </head>
   <body>
     <slot />
+
+    <script is:inline>
+      // Pages are prerendered, so today's opening hours are marked in the
+      // browser (in shop time) rather than frozen at build time.
+      (function () {
+        var today = new Date().toLocaleDateString("en-US", {
+          weekday: "long",
+          timeZone: "America/Toronto",
+        });
+        document.querySelectorAll("[data-day]").forEach(function (el) {
+          el.classList.toggle("is-today", el.getAttribute("data-day") === today);
+        });
+      })();
+    </script>
   </body>
 </html>
