@@ -57,7 +57,7 @@ const blogJsonLd = {
                   <a href={`/blog/${p.id}`} class="post-thumb">
                     <img
                       src={p.data.heroImage}
-                      alt={p.data.title}
+                      alt={p.data.heroAlt ?? p.data.title}
                       loading="lazy"
                       width="600"
                       height="340"
