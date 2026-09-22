@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { site } from "../data/site";
+import { googleAds, consentRequiredRegions } from "../data/tracking";
 
 interface Props {
   title?: string;
@@ -102,43 +104,105 @@ const imageUrl = new URL(image, siteUrl).href;
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="apple-touch-icon" href="/logo.svg" />
 
-    <!-- Google tag (gtag.js) — Google Ads: AW-18137998706 -->
+    <!-- Google tag (gtag.js) — Google Ads. IDs and conversion labels live in
+         src/data/tracking.ts. -->
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-18137998706"></script>
-    <script is:inline>
+      src={`https://www.googletagmanager.com/gtag/js?id=${googleAds.id}`}></script>
+    <script
+      is:inline
+      define:vars={{
+        ads: googleAds,
+        consentRegions: consentRequiredRegions,
+        bookingHost: new URL(site.bookingUrl).hostname,
+      }}
+    >
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "AW-18137998706");
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
 
-      // Google Ads conversion: "Book appointment".
-      // Fires when a booking link/button is clicked. Booking links open in a
-      // new tab, so we just report the conversion without redirecting here.
-      function gtag_report_conversion(url) {
-        gtag("event", "conversion", {
-          send_to: "AW-18137998706/fCxWCMGnkqccEPLK78hD",
-          event_callback: function () {
-            if (typeof url !== "undefined") {
-              window.location = url;
-            }
-          },
-        });
-        return false;
-      }
-
-      // Auto-attach the conversion to every booking button/link.
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll("[data-book]").forEach(function (el) {
-          el.addEventListener("click", function () {
-            gtag("event", "conversion", {
-              send_to: "AW-18137998706/fCxWCMGnkqccEPLK78hD",
-            });
-          });
-        });
+      // Consent Mode v2: denied by default where Google requires opt-in
+      // consent (no cookie banner here), granted everywhere else.
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        region: consentRegions,
       });
+      gtag("consent", "default", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+        analytics_storage: "granted",
+      });
+      gtag("set", "ads_data_redaction", true);
+
+      gtag("js", new Date());
+      gtag("config", ads.id);
+
+      // One capturing listener tracks every booking, call, directions and
+      // email link on the page — header, mobile bar, price list and links
+      // inside blog posts — with no per-element wiring.
+      var eventNames = {
+        booking: "booking_click",
+        call: "phone_call_click",
+        directions: "directions_click",
+        email: "email_click",
+      };
+      var lastSent = {};
+
+      function actionFor(link) {
+        var href = link.getAttribute("href") || "";
+        if (link.hasAttribute("data-book") || link.hostname === bookingHost) {
+          return "booking";
+        }
+        if (href.indexOf("tel:") === 0) return "call";
+        if (href.indexOf("mailto:") === 0) return "email";
+        if (link.hasAttribute("data-directions")) return "directions";
+        return null;
+      }
+
+      function onLinkClick(e) {
+        // Clicks, taps and Enter fire "click"; middle-click "open in new tab"
+        // only fires "auxclick".
+        if (e.type === "auxclick" && e.button !== 1) return;
+        var link = e.target.closest && e.target.closest("a[href]");
+        var action = link && actionFor(link);
+        if (!action) return;
+
+        // Ignore the second click of a double-click.
+        var now = Date.now();
+        if (now - (lastSent[action] || 0) < 1500) return;
+        lastSent[action] = now;
+
+        var params = {
+          link_url: link.href,
+          link_text: (link.textContent || "").trim().slice(0, 100),
+        };
+        var service = link.getAttribute("data-book-service");
+        var value = parseFloat(link.getAttribute("data-book-value"));
+        if (service) params.service = service;
+        if (value > 0) {
+          params.value = value;
+          params.currency = "CAD";
+        }
+        gtag("event", eventNames[action], params);
+
+        var label = ads.conversions[action];
+        if (label) {
+          var conversion = { send_to: ads.id + "/" + label };
+          if (value > 0) {
+            conversion.value = value;
+            conversion.currency = "CAD";
+          }
+          gtag("event", "conversion", conversion);
+        }
+      }
+
+      document.addEventListener("click", onLinkClick, true);
+      document.addEventListener("auxclick", onLinkClick, true);
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

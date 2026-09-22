@@ -1,6 +1,23 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
+import { site } from './src/data/site.ts';
+
+// Square booking links written in blog-post Markdown get the same treatment
+// as every other "Book" button on the site: they open in a new tab and carry
+// data-book, so the Google Ads booking conversion is sent before the visitor
+// leaves the page.
+function rehypeBookingLinks() {
+  const visit = (node) => {
+    if (node.tagName === 'a' && String(node.properties?.href).startsWith(site.bookingUrl)) {
+      node.properties.target = '_blank';
+      node.properties.rel = ['noopener'];
+      node.properties.dataBook = '';
+    }
+    node.children?.forEach(visit);
+  };
+  return (tree) => visit(tree);
+}
 
 // https://astro.build
 export default defineConfig({
@@ -16,6 +33,9 @@ export default defineConfig({
       enabled: true,
     },
   }),
+  markdown: {
+    rehypePlugins: [rehypeBookingLinks],
+  },
   integrations: [
     sitemap({
       changefreq: 'weekly',

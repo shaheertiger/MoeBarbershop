@@ -31,6 +31,11 @@ All shop details — services, hours, phone, address, booking URL — live in
 [`src/data/site.ts`](src/data/site.ts). Update that one file and every section
 follows.
 
+Google Ads tracking — the tag ID and conversion labels for booking, call,
+directions and email clicks — lives in
+[`src/data/tracking.ts`](src/data/tracking.ts). Paste a label there to start
+counting that click as a conversion.
+
 The logo lives at [`public/logo.svg`](public/logo.svg). Replace it with the
 final raster/vector asset when available (keep the `logo.svg` filename, or
 update the references in the components).
