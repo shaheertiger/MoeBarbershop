@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { site } from "../../data/site";
+import { priceValue } from "../../data/tracking";
 import {
   servicePages,
   servicePageJsonLd,
@@ -21,6 +22,8 @@ interface Props {
 }
 
 const { service } = Astro.props;
+// Sent with booking clicks as the Google Ads conversion value (starting price).
+const bookValue = priceValue(service.priceFrom);
 const others = servicePages.filter((s) => s.slug !== service.slug).slice(0, 3);
 ---
 
@@ -52,7 +55,15 @@ const others = servicePages.filter((s) => s.slug !== service.slug).slice(0, 3);
               <span>5.0★ on Google</span>
             </p>
             <div class="cta-row">
-              <a class="btn btn-primary" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+              <a
+                class="btn btn-primary"
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener"
+                data-book
+                data-book-service={service.metaTitle}
+                data-book-value={bookValue}
+              >
                 Book This Service
               </a>
               <a class="btn btn-outline" href={site.phoneHref}>Call {site.phone}</a>
@@ -99,7 +110,15 @@ const others = servicePages.filter((s) => s.slug !== service.slug).slice(0, 3);
           <div class="svc-cta">
             <h3>Ready for your {service.metaTitle.toLowerCase()}?</h3>
             <p>Book online at Moe's Barbershop in Erin, Ontario — or walk in when a chair's open.</p>
-            <a class="btn btn-light" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+            <a
+              class="btn btn-light"
+              href={site.bookingUrl}
+              target="_blank"
+              rel="noopener"
+              data-book
+              data-book-service={service.metaTitle}
+              data-book-value={bookValue}
+            >
               Book an Appointment
             </a>
           </div>

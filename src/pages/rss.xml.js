@@ -12,11 +12,13 @@ export async function GET(context) {
     description:
       "Haircut and beard grooming tips, style guides, and barbering advice from Moe's Barbershop in Erin, Ontario.",
     site: context.site ?? SITE_URL,
+    // Canonical post URLs have no trailing slash (vercel.json 308s them).
+    trailingSlash: false,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      link: `/blog/${post.id}/`,
+      link: `/blog/${post.id}`,
       categories: post.data.tags,
     })),
     customData: `<language>en-ca</language>`,

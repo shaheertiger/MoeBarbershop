@@ -1,10 +1,5 @@
 ---
 import { site, hours } from "../data/site";
-
-const today = new Date().toLocaleDateString("en-US", {
-  weekday: "long",
-  timeZone: "America/Toronto",
-});
 ---
 
 <section class="section location" id="location">
@@ -25,7 +20,7 @@ const today = new Date().toLocaleDateString("en-US", {
           <a href={site.phoneHref}>{site.phone}</a><br />
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
-        <a class="btn btn-outline" href={site.mapsUrl} target="_blank" rel="noopener">
+        <a class="btn btn-outline" href={site.mapsUrl} target="_blank" rel="noopener" data-directions>
           Get Directions →
         </a>
       </div>
@@ -35,7 +30,7 @@ const today = new Date().toLocaleDateString("en-US", {
         <ul>
           {
             hours.map((h) => (
-              <li class={h.day === today ? "is-today" : ""}>
+              <li data-day={h.day}>
                 <span class="day">{h.day}</span>
                 <span class="time">
                   {h.open} – {h.close}

@@ -7,13 +7,22 @@ import { site, SITE_URL } from "../../data/site";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return posts.map((post) => {
+    // "Keep reading": the posts sharing the most tags, newest first.
+    const shared = (p: typeof post) =>
+      p.data.tags.filter((t) => post.data.tags.includes(t)).length;
+    const related = posts
+      .filter((p) => p.id !== post.id)
+      .sort(
+        (a, b) =>
+          shared(b) - shared(a) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+      )
+      .slice(0, 3);
+    return { params: { slug: post.id }, props: { post, related } };
+  });
 }
 
-const { post } = Astro.props;
+const { post, related } = Astro.props;
 const { Content } = await render(post);
 
 const fmt = (d: Date) =>
@@ -29,9 +38,13 @@ const articleJsonLd = {
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
   dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
-  author: { "@type": "Person", name: post.data.author },
+  author:
+    post.data.author === "Moe"
+      ? { "@type": "Person", "@id": `${SITE_URL}/about#moe`, name: "Moe", url: `${SITE_URL}/about` }
+      : { "@type": "Person", name: post.data.author },
   publisher: {
     "@type": "Organization",
+    "@id": `${SITE_URL}/#org`,
     name: "Moe's Barbershop",
     logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
   },
@@ -39,6 +52,18 @@ const articleJsonLd = {
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
   keywords: post.data.tags.join(", "),
 };
+
+const faqJsonLd = post.data.faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.data.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -61,7 +86,7 @@ const breadcrumbJsonLd = {
   modifiedTime={(post.data.updatedDate ?? post.data.pubDate).toISOString()}
   author={post.data.author}
   tags={post.data.tags}
-  jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+  jsonLd={[articleJsonLd, breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])]}
 >
   <Header />
   <main>
@@ -88,7 +113,7 @@ const breadcrumbJsonLd = {
             <img
               class="post-hero"
               src={post.data.heroImage}
-              alt={post.data.title}
+              alt={post.data.heroAlt ?? post.data.title}
               width="1200"
               height="600"
               loading="eager"
@@ -100,6 +125,22 @@ const breadcrumbJsonLd = {
           <Content />
         </div>
 
+        {
+          post.data.faqs.length > 0 && (
+            <section class="post-faqs">
+              <h2>Frequently asked questions</h2>
+              <div class="faqs">
+                {post.data.faqs.map((f) => (
+                  <details class="faq-item">
+                    <summary>{f.q}</summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
         <div class="post-cta">
           <h3>Ready for a fresh cut?</h3>
           <p>Book your appointment at Moe's Barbershop in Erin, Ontario.</p>
@@ -107,6 +148,22 @@ const breadcrumbJsonLd = {
             Book an Appointment
           </a>
         </div>
+
+        {
+          related.length > 0 && (
+            <nav class="related" aria-label="More articles">
+              <h2>Keep reading</h2>
+              <ul>
+                {related.map((r) => (
+                  <li>
+                    <a href={`/blog/${r.id}`}>{r.data.title}</a>
+                    <p>{r.data.excerpt}</p>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )
+        }
 
         <a class="back-link" href="/blog">← Back to all articles</a>
       </div>
@@ -193,6 +250,59 @@ const breadcrumbJsonLd = {
     text-underline-offset: 3px;
   }
 
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0 1.6em;
+    font-size: 0.98rem;
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(90, 45, 32, 0.12);
+  }
+
+  .prose :global(th) {
+    background: var(--cream);
+    color: var(--brown);
+    font-weight: 700;
+  }
+
+  .post-faqs {
+    margin-top: 48px;
+  }
+
+  .post-faqs h2,
+  .related h2 {
+    font-size: 1.6rem;
+  }
+
+  .faqs {
+    display: grid;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+
+  .faq-item summary {
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--brown);
+  }
+
+  .faq-item p {
+    margin: 10px 0 0;
+    color: var(--muted);
+  }
+
   .post-cta {
     background: var(--brown);
     color: var(--cream);
@@ -211,6 +321,42 @@ const breadcrumbJsonLd = {
     color: rgba(240, 228, 204, 0.85);
   }
 
+  .related {
+    margin-bottom: 32px;
+  }
+
+  .related ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+  }
+
+  .related li {
+    background: var(--white);
+    border: 1px solid rgba(90, 45, 32, 0.08);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+
+  .related a {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--brown);
+  }
+
+  .related a:hover {
+    color: var(--orange);
+  }
+
+  .related p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
   .back-link {
     font-weight: 600;
     color: var(--brown);
@@ -218,5 +364,12 @@ const breadcrumbJsonLd = {
 
   .back-link:hover {
     color: var(--orange);
+  }
+
+  @media (max-width: 640px) {
+    .prose :global(table) {
+      display: block;
+      overflow-x: auto;
+    }
   }
 </style>

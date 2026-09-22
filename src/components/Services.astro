@@ -1,5 +1,6 @@
 ---
 import { services, site } from "../data/site";
+import { priceValue } from "../data/tracking";
 ---
 
 <section class="section services" id="services">
@@ -24,7 +25,15 @@ import { services, site } from "../data/site";
             <p class="desc">{s.description}</p>
             <div class="card-foot">
               <span class="duration">⏱ {s.duration}</span>
-              <a class="book-link" href={site.bookingUrl} target="_blank" rel="noopener" data-book>
+              <a
+                class="book-link"
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener"
+                data-book
+                data-book-service={s.name}
+                data-book-value={priceValue(s.price)}
+              >
                 Book →
               </a>
             </div>

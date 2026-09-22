@@ -12,6 +12,10 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     excerpt: z.string(),
     heroImage: z.string().optional(),
+    /** Describes the hero photo; falls back to the post title. */
+    heroAlt: z.string().optional(),
+    /** Shown under the post and emitted as FAQPage JSON-LD. */
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
   }),
 });
 
