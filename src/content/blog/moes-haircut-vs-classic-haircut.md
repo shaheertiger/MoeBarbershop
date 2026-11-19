@@ -11,7 +11,7 @@ faqs:
   - q: "What is the Moe's Haircut?"
     a: "The Moe's Haircut is our signature one-hour service at CAD$100. It includes an in-depth consultation and a precision cut designed around your face shape, hair type and style."
   - q: "What is included in the Classic Haircut?"
-    a: "The Classic Haircut is a CAD$30, 20-minute cut for timeless, professional styles. It starts with a quick consultation and finishes with clean edges."
+    a: "The Classic Haircut is a CAD$35, 20-minute cut for timeless, professional styles. It starts with a quick consultation and finishes with clean edges."
   - q: "Which haircut should I book for a big style change?"
     a: "Book the Moe's Haircut. The extra time allows for a full consultation and a precision cut when you're changing your look, growing out a style or preparing for a big event."
 ---
@@ -27,7 +27,7 @@ Here's how to choose.
 
 | | Classic Haircut | Moe's Haircut |
 | --- | --- | --- |
-| Price | CAD$30 | CAD$100 |
+| Price | CAD$35 | CAD$100 |
 | Time | ~20 mins | ~1 hr |
 | Consultation | Quick check-in | In-depth consultation |
 | Best for | Regular maintenance, known styles | New looks, detailed cuts, special occasions |
@@ -71,7 +71,7 @@ cuts keep it sharp.
 ## Don't forget the beard
 
 If you have a beard, the [Haircut & Beard combo](/services/haircut-and-beard)
-(CAD$50, ~30 mins) is the most efficient way to get both done and connected in a
+(CAD$55, ~30 mins) is the most efficient way to get both done and connected in a
 single visit. You can also add a [Beard Fade & Lineup](/services/beard-trim-and-lineup)
 or a five-minute threading touch-up to either haircut.
 

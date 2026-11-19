@@ -64,7 +64,7 @@ book or arrive, and we'll make it work.
 
 | Service | Price | Time |
 | --- | --- | --- |
-| Senior Haircut | CAD$25 | ~25 mins |
+| Senior Haircut | CAD$30 | ~25 mins |
 | Threading (add-on) | CAD$10 | ~5 mins |
 
 Most senior clients come in every **three to five weeks** to keep their cut

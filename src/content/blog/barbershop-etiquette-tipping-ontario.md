@@ -20,8 +20,8 @@ clients go a little higher.
 
 | Service | Price | 15% | 20% |
 | --- | --- | --- | --- |
-| Classic Haircut | CAD$30 | $4.50 | $6 |
-| Haircut & Beard | CAD$50 | $7.50 | $10 |
+| Classic Haircut | CAD$35 | $5.25 | $7 |
+| Haircut & Beard | CAD$55 | $8.25 | $11 |
 | Kids Haircut | CAD$25 | $3.75 | $5 |
 
 Tipping is always appreciated, never required — and if something isn't right,

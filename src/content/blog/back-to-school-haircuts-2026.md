@@ -69,7 +69,7 @@ handle more length on top.
 | --- | --- | --- |
 | [Kids Haircut](/services/kids-haircut) | CAD$25 | ~20 mins |
 | Kids Haircut + Design | CAD$30 | ~30 mins |
-| [Classic Haircut](/services/mens-haircut) (teens/adults) | CAD$30 | ~20 mins |
+| [Classic Haircut](/services/mens-haircut) (teens/adults) | CAD$35 | ~20 mins |
 
 [Book your back-to-school cut](https://moes-barbershop.square.site/) at Moe's
 Barbershop, 99 Trafalgar Rd, Erin, Ontario.

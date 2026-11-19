@@ -1,27 +1,27 @@
 ---
 title: "Men's Haircut Prices in Erin, Ontario (2026 Guide)"
-description: "What a men's haircut costs in Erin, Ontario in 2026: classic cuts $30, haircut and beard $50, kids' and seniors' cuts $25 — plus what's included and how to tip."
+description: "What a men's haircut costs in Erin, Ontario in 2026: classic cuts $35, haircut and beard $55, seniors' cuts $30, kids' cuts $25 — plus what's included and how to tip."
 pubDate: 2026-09-22
 author: "Moe"
 tags: ["local", "pricing", "guide"]
-excerpt: "Classic cuts for $30, haircut and beard for $50, kids' and seniors' cuts for $25 — here's exactly what you'll pay at Moe's in 2026, what's included, and how tipping works."
+excerpt: "Classic cuts for $35, haircut and beard for $55, seniors' cuts for $30, kids' cuts for $25 — here's exactly what you'll pay at Moe's in 2026, what's included, and how tipping works."
 heroImage: "/images/cut-scissor.jpg"
 heroAlt: "Barber cutting the top of a client's hair with scissors over a comb"
 faqs:
   - q: "How much is a men's haircut in Erin, Ontario?"
-    a: "At Moe's Barbershop, a Classic Haircut is CAD$30 and the signature Moe's Haircut is CAD$100. A Haircut & Beard combo is CAD$50."
+    a: "At Moe's Barbershop, a Classic Haircut is CAD$35 and the signature Moe's Haircut is CAD$100. A Haircut & Beard combo is CAD$55."
   - q: "How much is a kids' haircut?"
     a: "A Kids Haircut is CAD$25 and takes about 20 minutes. A Kids Haircut + Design is CAD$30."
   - q: "Is there a cheaper haircut for seniors?"
-    a: "Yes — the Senior Haircut is CAD$25: a gentle, unhurried cut at a senior-friendly price."
+    a: "Yes — the Senior Haircut is CAD$30: a gentle, unhurried cut at a senior-friendly price."
   - q: "How much should I tip my barber in Canada?"
-    a: "Tipping is always optional. For good service, 15–20% is common in Canada — about $4.50 to $6 on a $30 cut."
+    a: "Tipping is always optional. For good service, 15–20% is common in Canada — about $5.25 to $7 on a $35 cut."
   - q: "What payment methods does Moe's Barbershop accept?"
     a: "We accept cash, debit and credit cards."
 ---
 
-Short answer: at Moe's Barbershop in Erin, Ontario, a **Classic Haircut is $30**,
-a **Haircut & Beard combo is $50**, and **kids' and seniors' cuts are $25**. Our
+Short answer: at Moe's Barbershop in Erin, Ontario, a **Classic Haircut is $35**,
+a **Haircut & Beard combo is $55**, **seniors' cuts are $30** and **kids' cuts are $25**. Our
 signature **Moe's Haircut is $100** for the full one-hour experience. All prices
 are in Canadian dollars and current as of September 2026 — the
 [services page](/services) always has the latest.
@@ -34,11 +34,11 @@ to tip.
 
 | Service | Price (CAD) | Time |
 | --- | --- | --- |
-| Classic Haircut | $30 | 20 mins |
+| Classic Haircut | $35 | 20 mins |
 | Moe's Haircut (signature) | $100 | 1 hr |
-| Haircut & Beard | $50 | 30 mins |
+| Haircut & Beard | $55 | 30 mins |
 | Beard Fade & Lineup | $30 | 20 mins |
-| Senior Haircut | $25 | 25 mins |
+| Senior Haircut | $30 | 25 mins |
 | Kids Haircut | $25 | 20 mins |
 | Kids Haircut + Design | $30 | 30 mins |
 | Threading | $10 | 5 mins |
@@ -55,7 +55,7 @@ it.
 A few things worth knowing:
 
 - **Fades are part of the cut.** A low, mid, high or [skin fade](/services/skin-fade)
-  is done within the Classic Haircut, so skin fades start at $30.
+  is done within the Classic Haircut, so skin fades start at $35.
 - **The signature Moe's Haircut is the full experience.** It's a full hour: an
   unhurried consultation, a precision cut, detailed finishing and a hot-towel
   finish. Book it when you want a new style dialled in or just want to be looked
@@ -65,9 +65,9 @@ A few things worth knowing:
 
 ## Which service should you book?
 
-- **You want your usual cut kept sharp** → [Classic Haircut](/services/mens-haircut), $30.
-- **You wear a beard** → [Haircut & Beard](/services/haircut-and-beard), $50. Booked
-  separately, a cut and a beard lineup would be $60, so the combo saves you $10
+- **You want your usual cut kept sharp** → [Classic Haircut](/services/mens-haircut), $35.
+- **You wear a beard** → [Haircut & Beard](/services/haircut-and-beard), $55. Booked
+  separately, a cut and a beard lineup would be $65, so the combo saves you $10
   and keeps your hair and beard on the same schedule.
 - **Only the beard needs attention** → [Beard Fade & Lineup](/services/beard-trim-and-lineup), $30.
 - **You're changing your look, or it's a big occasion** → Moe's Haircut, $100.
@@ -75,7 +75,7 @@ A few things worth knowing:
 - **Cuts for the kids** → [Kids Haircut](/services/kids-haircut), $25, or add a
   shaved design for $30. First time in the chair? Read our
   [first haircut guide for parents](/blog/kids-first-haircut-guide).
-- **Seniors** → [Senior Haircut](/services/senior-haircut), $25.
+- **Seniors** → [Senior Haircut](/services/senior-haircut), $30.
 
 ## Why haircut prices vary from shop to shop
 
@@ -98,9 +98,10 @@ barber whose regular work you'd happily wear every day.
 Tipping is always optional, but for good service **15–20% is common in Canada**.
 In practice that looks like:
 
-- $30 Classic Haircut → about **$4.50–$6**
-- $50 Haircut & Beard → about **$7.50–$10**
-- $25 Kids or Senior Haircut → about **$3.75–$5**
+- $35 Classic Haircut → about **$5.25–$7**
+- $55 Haircut & Beard → about **$8.25–$11**
+- $30 Senior Haircut → about **$4.50–$6**
+- $25 Kids Haircut → about **$3.75–$5**
 
 We accept **cash, debit and credit cards**, so pay however suits you.
 

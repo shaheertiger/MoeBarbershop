@@ -13,7 +13,7 @@ export const faqs = [
   },
   {
     q: "How much is a haircut at Moe's Barbershop?",
-    a: "A classic haircut is CAD$30, a haircut & beard combo is CAD$50, and kids' cuts start at CAD$25. See the full price list in our Services section.",
+    a: "A classic haircut is CAD$35, a haircut & beard combo is CAD$55, and kids' cuts start at CAD$25. See the full price list in our Services section.",
   },
   {
     q: "What are your hours?",

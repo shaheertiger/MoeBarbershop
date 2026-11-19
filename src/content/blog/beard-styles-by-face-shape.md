@@ -13,7 +13,7 @@ faqs:
   - q: "What beard suits a round face?"
     a: "A beard that's shorter on the sides and longer at the chin, such as a boxed beard or a short full beard with a squared-off chin, adds length and definition to a round face."
   - q: "How much is a beard trim at Moe's Barbershop?"
-    a: "A Beard Fade & Lineup is CAD$30 and takes about 20 minutes. The Haircut & Beard combo is CAD$50 and takes about 30 minutes."
+    a: "A Beard Fade & Lineup is CAD$30 and takes about 20 minutes. The Haircut & Beard combo is CAD$55 and takes about 30 minutes."
 ---
 
 The right beard does more than cover your chin — it reshapes your whole face. A

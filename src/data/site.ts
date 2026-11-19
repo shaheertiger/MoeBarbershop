@@ -258,13 +258,13 @@ export const services: Service[] = [
   {
     name: "Haircut & Beard",
     description: "Stylish grooming, professional appearance, easy maintenance.",
-    price: "CAD$50.00",
+    price: "CAD$55.00",
     duration: "30 mins",
   },
   {
     name: "Classic Haircut",
     description: "Timeless style, professional look, versatile choice.",
-    price: "CAD$30.00",
+    price: "CAD$35.00",
     duration: "20 mins",
   },
   {
@@ -277,7 +277,7 @@ export const services: Service[] = [
   {
     name: "Senior Haircut",
     description: "Professional styling, gentle on scalp, modern look.",
-    price: "CAD$25.00",
+    price: "CAD$30.00",
     duration: "25 mins",
   },
   {

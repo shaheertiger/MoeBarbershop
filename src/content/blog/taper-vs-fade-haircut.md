@@ -17,7 +17,7 @@ faqs:
   - q: "How often should I touch up a taper or a fade?"
     a: "Fades look sharpest on a two-to-three-week cycle because the shortest hair shows growth first. Tapers can usually go three to four weeks."
   - q: "How much is a taper or a fade at Moe's Barbershop?"
-    a: "Both are done within our Classic Haircut at CAD$30. Add a connected beard lineup with the Haircut & Beard combo for CAD$50."
+    a: "Both are done within our Classic Haircut at CAD$35. Add a connected beard lineup with the Haircut & Beard combo for CAD$55."
 ---
 
 "Taper" and "fade" get used like they mean the same thing, and that's how a lot
@@ -126,7 +126,7 @@ time to sort it out.
 ## Get your taper or fade in Erin
 
 Tapers and fades are both done within our [Classic Haircut](/services/mens-haircut)
-at $30, and we blend [low, mid, high, burst and drop fades](/services/skin-fade)
+at $35, and we blend [low, mid, high, burst and drop fades](/services/skin-fade)
 every day at 99 Trafalgar Rd in Erin. Clients come in from
 [Hillsburgh](/areas/hillsburgh), [Acton](/areas/acton),
 [Rockwood](/areas/rockwood), [Caledon](/areas/caledon) and beyond.

@@ -15,7 +15,7 @@ export interface ServicePage {
   metaDescription: string;
   /** One-line summary shown on the services index card. */
   summary: string;
-  /** Starting price, e.g. "CAD$30". */
+  /** Starting price, e.g. "CAD$35". */
   priceFrom: string;
   duration: string;
   /** Hero image in /public/images. */
@@ -41,7 +41,7 @@ export const servicePages: ServicePage[] = [
       "Men's haircuts at Moe's Barbershop in Erin, Ontario. Classic cuts, modern styles and the signature Moe's Haircut — consultation, precision cut and finish. Book online.",
     summary:
       "Classic and modern men's cuts, finished with detail and a consultation every time.",
-    priceFrom: "CAD$30",
+    priceFrom: "CAD$35",
     duration: "20–60 mins",
     image: "/images/haircut.jpg",
     bookable: ["Moe's Haircut", "Classic Haircut"],
@@ -59,7 +59,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "How much is a men's haircut in Erin?",
-        a: "A Classic Haircut at Moe's Barbershop is CAD$30 and the signature Moe's Haircut is CAD$100. Both include a consultation and a precision cut.",
+        a: "A Classic Haircut at Moe's Barbershop is CAD$35 and the signature Moe's Haircut is CAD$100. Both include a consultation and a precision cut.",
       },
       {
         q: "How long does a men's haircut take?",
@@ -81,7 +81,7 @@ export const servicePages: ServicePage[] = [
       "Skin fades and bald fades at Moe's Barbershop in Erin, Ontario. Low, mid, high, burst and drop fades blended razor-clean. Rated 5.0 on Google. Book online today.",
     summary:
       "Low, mid, high, burst and drop fades blended seamlessly down to the skin.",
-    priceFrom: "CAD$30",
+    priceFrom: "CAD$35",
     duration: "20–60 mins",
     image: "/images/fade.jpg",
     bookable: ["Moe's Haircut", "Classic Haircut", "Haircut & Beard"],
@@ -99,7 +99,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "How much is a skin fade in Erin, Ontario?",
-        a: "Skin fades start at CAD$30 for a Classic Haircut. A haircut and beard combo with a connected fade is CAD$50.",
+        a: "Skin fades start at CAD$35 for a Classic Haircut. A haircut and beard combo with a connected fade is CAD$55.",
       },
       {
         q: "Which fade should I get?",
@@ -139,7 +139,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "How much is a beard trim and lineup?",
-        a: "A Beard Fade & Lineup at Moe's Barbershop is CAD$30. A combined Haircut & Beard is CAD$50.",
+        a: "A Beard Fade & Lineup at Moe's Barbershop is CAD$30. A combined Haircut & Beard is CAD$55.",
       },
       {
         q: "Can I get my beard and haircut done together?",
@@ -161,7 +161,7 @@ export const servicePages: ServicePage[] = [
       "Get a fresh haircut and a sharp beard lineup together at Moe's Barbershop in Erin, Ontario. One appointment, fully connected look. Book your combo online.",
     summary:
       "A fresh cut and a connected beard fade and lineup in one appointment.",
-    priceFrom: "CAD$50",
+    priceFrom: "CAD$55",
     duration: "30 mins",
     image: "/images/cut-beard-profile.jpg",
     bookable: ["Haircut & Beard"],
@@ -179,7 +179,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "How much is a haircut and beard together?",
-        a: "The Haircut & Beard combo at Moe's Barbershop is CAD$50 and takes about 30 minutes.",
+        a: "The Haircut & Beard combo at Moe's Barbershop is CAD$55 and takes about 30 minutes.",
       },
       {
         q: "Is the combo cheaper than booking separately?",
@@ -237,7 +237,7 @@ export const servicePages: ServicePage[] = [
       "Senior haircuts at Moe's Barbershop in Erin, Ontario. Professional, gentle styling and a modern, comfortable cut at a senior-friendly price. Book online.",
     summary:
       "Professional, gentle styling with a comfortable, modern finish.",
-    priceFrom: "CAD$25",
+    priceFrom: "CAD$30",
     duration: "25 mins",
     image: "/images/cut-side-part.jpg",
     bookable: ["Senior Haircut"],
@@ -255,7 +255,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "How much is a senior haircut in Erin?",
-        a: "A Senior Haircut at Moe's Barbershop is CAD$25 and takes about 25 minutes.",
+        a: "A Senior Haircut at Moe's Barbershop is CAD$30 and takes about 25 minutes.",
       },
       {
         q: "Do I need an appointment?",
