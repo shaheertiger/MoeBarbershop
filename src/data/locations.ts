@@ -59,6 +59,7 @@ export const locationPages: LocationPage[] = [
     intro: [
       "Orangeville clients make the short trip to Moe's Barbershop in Erin for a cut that's worth it. Classic haircuts, modern fades, beard work and kids' cuts — all finished with the detail that's earned us a 5.0 Google rating.",
       "Reserve your chair online for an easy in-and-out, or drop by when you're passing through Erin.",
+      "Many of our Orangeville clients book ahead to make the trip easy: you choose the time, your chair is ready, and you're back on the road in about 20 minutes for a Classic Haircut (CAD$35) or 30 minutes for a haircut and beard (CAD$55). We're open Tuesday to Sunday.",
     ],
     nearby: ["Orangeville", "Mono", "Dufferin County"],
   },
@@ -70,6 +71,7 @@ export const locationPages: LocationPage[] = [
     intro: [
       "From Georgetown and Halton Hills, Moe's Barbershop in Erin is the go-to for sharp, reliable men's grooming. Skin fades, beard lineups, haircut-and-beard combos and kids' cuts — done right, every time.",
       "Book online before you head over and your chair will be ready when you arrive.",
+      "If you're in Georgetown or Glen Williams and tired of rushed cuts, Moe's is worth the drive. Our signature Moe's Haircut (CAD$100, one hour) is a full consultation and precision cut for a new look or a big occasion, while the Classic Haircut (CAD$35) keeps your regular style sharp.",
     ],
     nearby: ["Georgetown", "Halton Hills", "Glen Williams"],
   },
@@ -81,6 +83,7 @@ export const locationPages: LocationPage[] = [
     intro: [
       "Acton clients trust Moe's Barbershop in nearby Erin for clean fades, crisp beard lineups and classic men's cuts. We're an easy drive away and always finish with a sharp, detailed result.",
       "Book your appointment online or walk in when a chair opens up.",
+      "Acton clients come to us most often for skin fades and beard lineups — the detail work that's hard to get right. We blend low, mid and high fades by hand and finish every cut with a clean neckline. Seniors' cuts are CAD$30 and kids' cuts are CAD$25, so it's easy to bring the whole family.",
     ],
     nearby: ["Acton", "Halton Hills", "Prospect Park"],
   },
@@ -114,6 +117,7 @@ export const locationPages: LocationPage[] = [
     intro: [
       "From Fergus, Moe's Barbershop in Erin is the local choice for clean, reliable men's grooming — skin fades, beard lineups, haircut-and-beard combos and kids' cuts, all finished with detail.",
       "Book online before you head over and your chair will be ready when you arrive.",
+      "Searching for a barber in Fergus usually means you want a consistent cut without the guesswork. Every appointment at Moe's starts with a consultation, so tell us what your last barber did and we'll match it — or improve on it. A Classic Haircut is CAD$35, the Haircut & Beard combo is CAD$55, and kids' cuts are CAD$25.",
     ],
     nearby: ["Fergus", "Centre Wellington", "Wellington County"],
   },
