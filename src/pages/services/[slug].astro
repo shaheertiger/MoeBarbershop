@@ -107,6 +107,21 @@ const others = servicePages.filter((s) => s.slug !== service.slug).slice(0, 3);
             )
           }
 
+          {
+            service.guides && service.guides.length > 0 && (
+              <>
+                <h2 class="block-title">Read the guide first</h2>
+                <ul class="checklist">
+                  {service.guides.map((g) => (
+                    <li>
+                      <a href={`/blog/${g.slug}`}>{g.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )
+          }
+
           <div class="svc-cta">
             <h3>Ready for your {service.metaTitle.toLowerCase()}?</h3>
             <p>Book online at Moe's Barbershop in Erin, Ontario — or walk in when a chair's open.</p>

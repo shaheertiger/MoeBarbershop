@@ -125,7 +125,7 @@ time to sort it out.
 
 ## Get your taper or fade in Erin
 
-Tapers and fades are both done within our [Classic Haircut](/services/mens-haircut)
+Tapers and fades are both done within our [Classic Haircut](/services/taper-fade)
 at $35, and we blend [low, mid, high, burst and drop fades](/services/skin-fade)
 every day at 99 Trafalgar Rd in Erin. Clients come in from
 [Hillsburgh](/areas/hillsburgh), [Acton](/areas/acton),
