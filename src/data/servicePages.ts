@@ -30,6 +30,8 @@ export interface ServicePage {
   faqs: ServiceFaq[];
   /** Comma-separated keyword string for the meta keywords tag. */
   keywords: string;
+  /** In-depth blog guides for this cut, linked from the service page. */
+  guides?: { slug: string; label: string }[];
 }
 
 export const servicePages: ServicePage[] = [
@@ -188,6 +190,151 @@ export const servicePages: ServicePage[] = [
     ],
     keywords:
       "haircut and beard Erin Ontario, haircut beard combo, men's grooming Erin, barber near me",
+  },
+  {
+    slug: "curly-hair-haircut",
+    title: "Curly Hair Haircuts in Erin, Ontario",
+    metaTitle: "Curly Hair Barber Erin",
+    metaDescription:
+      "Curly hair barber in Erin, Ontario. Curly fades, tapers and textured crops cut for shrinkage and your natural curl pattern at Moe's Barbershop. From CAD$35. Book online.",
+    summary:
+      "Curly fades, tapers and crops cut for your natural pattern and shrinkage.",
+    priceFrom: "CAD$35",
+    duration: "20–60 mins",
+    image: "/images/cut-curly-fade.jpg",
+    bookable: ["Classic Haircut", "Moe's Haircut", "Haircut & Beard"],
+    intro: [
+      "Curly hair gets cut wrong more than any other type, usually because the barber doesn't allow for shrinkage. At Moe's Barbershop in Erin we look at your curls dry and in their natural state first, then cut the shape you'll actually wear, not the length it looks when it's wet.",
+      "The most-requested curly cut is a curly top with a low, mid or drop fade: the sides lose the bulk that makes curls grow outward, and the top keeps its volume. Prefer something softer? A curly taper or a textured crop grows out more gently and needs fewer visits.",
+    ],
+    highlights: [
+      "Curls checked dry before cutting, so shrinkage doesn't surprise you",
+      "Curly fades, drop fades and tapers blended through texture",
+      "Weight taken out of the sides without frizzing the top",
+      "Sharp lineups that frame the curls",
+      "Product advice for defining curls at home",
+    ],
+    faqs: [
+      {
+        q: "Do you cut curly hair in Erin?",
+        a: "Yes. Moe's Barbershop cuts curly, wavy and coily hair every week, from curly fades and drop fades to longer textured crops.",
+      },
+      {
+        q: "How much is a curly haircut?",
+        a: "A curly haircut is a Classic Haircut at CAD$35. The full Moe's Haircut with a longer consultation and detailed finish is CAD$100.",
+      },
+      {
+        q: "Should I come in with wet or dry hair?",
+        a: "Come in with clean, dry hair in its natural state, without heavy product. That lets the barber see your real curl pattern and shrinkage.",
+      },
+      {
+        q: "What's the best fade for curly hair?",
+        a: "A low or drop fade suits most curly hair because it removes bulk at the sides while keeping the curls on top. A mid fade adds more contrast.",
+      },
+    ],
+    keywords:
+      "curly hair barber Erin, curly haircut Erin Ontario, curly hair fade, mens curly haircut near me, curly taper",
+    guides: [
+      { slug: "curly-hair-mens-haircuts", label: "Curly hair haircuts for men" },
+      { slug: "taper-vs-fade-haircut", label: "Taper vs fade: which to ask for" },
+      { slug: "mens-hair-products-guide", label: "Clay, pomade or cream for curls" },
+    ],
+  },
+  {
+    slug: "buzz-cut",
+    title: "Buzz Cuts in Erin, Ontario",
+    metaTitle: "Buzz Cut Erin, Ontario",
+    metaDescription:
+      "Buzz cuts in Erin, Ontario: induction, butch and fade buzz cuts at any guard from #0 to #8, finished with a sharp lineup. CAD$35 at Moe's Barbershop. Book online.",
+    summary:
+      "Any guard from #0 to #8, with an optional fade and a sharp lineup.",
+    priceFrom: "CAD$35",
+    duration: "20 mins",
+    image: "/images/cut-fade.jpg",
+    bookable: ["Classic Haircut", "Haircut & Beard"],
+    intro: [
+      "A buzz cut looks simple, but with no length to hide behind, the guard, the shape and the edges are everything. At Moe's Barbershop we'll help you choose the right guard for your hair and face, then finish with a crisp lineup and a clean neckline, the details that separate a barbershop buzz from a home job.",
+      "Going short for the first time? Most people look best at a #3 or #4. Want more shape? A fade buzz takes the sides down to the skin while the top stays at your chosen guard.",
+    ],
+    highlights: [
+      "Any guard length from #0 to #8",
+      "Induction, butch, burr and fade buzz cuts",
+      "Sharp lineup at the forehead and temples",
+      "Clean squared or rounded neckline",
+      "Optional beard fade to connect the look",
+    ],
+    faqs: [
+      {
+        q: "How much is a buzz cut in Erin?",
+        a: "A buzz cut is a Classic Haircut at Moe's Barbershop: CAD$35, about 20 minutes. Add a beard for CAD$55 with the Haircut & Beard combo.",
+      },
+      {
+        q: "What number should I get for a buzz cut?",
+        a: "A #3 (about 10 mm) is the most popular all-round buzz, and a #4 (about 13 mm) is the best first buzz. Go shorter next time if you like it.",
+      },
+      {
+        q: "Can I get a buzz cut with a fade?",
+        a: "Yes. A fade buzz keeps the top at your guard, for example a #3, and fades the sides down to the skin. It's the most popular way to wear a buzz.",
+      },
+      {
+        q: "How often should I get my buzz cut redone?",
+        a: "Every two to three weeks keeps the shape and lineup sharp, especially with a faded side.",
+      },
+    ],
+    keywords:
+      "buzz cut Erin Ontario, buzz cut near me, fade buzz cut, buzz cut with lineup, induction cut, barber Erin",
+    guides: [
+      { slug: "buzz-cut-guide", label: "Buzz cut lengths and styles" },
+      { slug: "clipper-guard-numbers-explained", label: "Clipper guard numbers in mm" },
+    ],
+  },
+  {
+    slug: "taper-fade",
+    title: "Taper Fades in Erin, Ontario",
+    metaTitle: "Taper Fade Erin, Ontario",
+    metaDescription:
+      "Taper and taper fade haircuts in Erin, Ontario. Low tapers, mid tapers and taper fades blended clean at the temples and neckline. CAD$35 at Moe's Barbershop. Book online.",
+    summary:
+      "Low and mid tapers and taper fades, blended clean at the temples and neckline.",
+    priceFrom: "CAD$35",
+    duration: "20–60 mins",
+    image: "/images/fade.jpg",
+    bookable: ["Classic Haircut", "Moe's Haircut", "Haircut & Beard"],
+    intro: [
+      "A taper shortens the hair gradually at the sideburns and neckline only; a fade takes the whole side down. A taper fade sits between the two: skin or near-skin at the edges, with most of the side length kept. It's the cleanest option if you want a sharp look that grows out gently.",
+      "Not sure which one to ask for? Tell us how often you like to get cut and how sharp you want the sides, and we'll recommend a taper, taper fade or full fade at Moe's Barbershop in Erin.",
+    ],
+    highlights: [
+      "Low, mid and high tapers",
+      "Taper fades down to the skin at the edges",
+      "Works on straight, wavy and curly hair",
+      "Grows out more gently than a full fade",
+      "Clean lineups and natural or blocked necklines",
+    ],
+    faqs: [
+      {
+        q: "What's the difference between a taper and a fade?",
+        a: "A taper only shortens the hair at the sideburns and neckline. A fade takes the hair down much higher around the sides and back, often to the skin.",
+      },
+      {
+        q: "Is a taper a skin fade?",
+        a: "Not usually. A standard taper leaves some length at the edges. A taper fade takes those edges down to the skin but keeps the rest of the side longer than a skin fade would.",
+      },
+      {
+        q: "How much is a taper fade in Erin?",
+        a: "A taper or taper fade is a Classic Haircut at CAD$35. The full Moe's Haircut experience is CAD$100.",
+      },
+      {
+        q: "How long does a taper last?",
+        a: "A taper still looks tidy at three to four weeks, about a week longer than a skin fade.",
+      },
+    ],
+    keywords:
+      "taper fade Erin Ontario, taper haircut, low taper, mid taper, taper vs fade, barber Erin",
+    guides: [
+      { slug: "taper-vs-fade-haircut", label: "Taper vs fade, explained" },
+      { slug: "skin-fade-guide-erin-ontario", label: "Skin fade guide" },
+    ],
   },
   {
     slug: "kids-haircut",

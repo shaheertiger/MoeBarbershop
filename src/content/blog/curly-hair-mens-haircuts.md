@@ -68,7 +68,8 @@ the edges clean.
 
 For the best result, come in with your hair styled the way you normally wear it
 — not freshly brushed out or slicked down. It helps us see your natural pattern
-and cut to it.
+and cut to it. More on what we do on our [curly hair haircut
+page](/services/curly-hair-haircut).
 
 [Book your curly cut](https://moes-barbershop.square.site/) at Moe's Barbershop,
 99 Trafalgar Rd, Erin, Ontario.

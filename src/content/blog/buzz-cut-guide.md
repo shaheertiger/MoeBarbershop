@@ -120,7 +120,7 @@ toward the crown. A good option if you want the feel of a buzz with more shape.
 ## Ready to go short?
 
 A buzz with a fade and lineup is quick to do as a [Classic
-Haircut](/services/mens-haircut) at CAD$35, about 20 minutes.
+Haircut](/services/buzz-cut) at CAD$35, about 20 minutes.
 
 [Book your buzz cut](https://moes-barbershop.square.site/) at Moe's Barbershop,
 99 Trafalgar Rd, Erin, Ontario.
